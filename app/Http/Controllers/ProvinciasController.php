@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Provincia;
 
 class ProvinciasController extends Controller
 {
@@ -16,6 +17,9 @@ class ProvinciasController extends Controller
     public function index()
     {
         //
+        $provincias = Provincia::all();
+
+        return view('provincias.index', ['provincias' => $provincias]);
     }
 
     /**
@@ -37,6 +41,20 @@ class ProvinciasController extends Controller
     public function store(Request $request)
     {
         //
+
+        $this->validate($request, [
+              'provincia' => 'required|unique:provincias|max:255',
+              
+        ]);
+
+
+
+
+
+
+        $provincias = new Provincia;
+        $provincias->provincia = $request->provincia;
+        $provincias->save();
     }
 
     /**
@@ -59,6 +77,9 @@ class ProvinciasController extends Controller
     public function edit($id)
     {
         //
+        $provincias = Provincia::find($id);
+
+
     }
 
     /**
@@ -71,6 +92,10 @@ class ProvinciasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $provincias = Provincia::find($id);
+        $provincias->provincia = $request->provincia;
+        $provincias->save();
+
     }
 
     /**
@@ -82,5 +107,7 @@ class ProvinciasController extends Controller
     public function destroy($id)
     {
         //
+        $provincias = Provincia::find($id);
+        $provincias->delete();
     }
 }
