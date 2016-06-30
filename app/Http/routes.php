@@ -21,4 +21,9 @@ Route::group(['middleware' => 'web'], function() {
   Route::get('/', 'HomeController@index');
 
 
+  Route::resource('provincias', 'ProvinciasController');
+
+
+
+
 });

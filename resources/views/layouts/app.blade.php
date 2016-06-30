@@ -63,12 +63,12 @@
     	<!-- Modal Logout -->
     	<div class="md-modal md-just-me" id="logout-modal">
     		<div class="md-content">
-    			<h3><strong>Logout</strong> Confirmation</h3>
+    			<h3>Confirmacion de <strong>salida</strong></h3>
     			<div>
-    				<p class="text-center">Are you sure want to logout from this awesome system?</p>
+    				<p class="text-center"> ¿Seguro desea cerrar la sesión de este sistema ?</p>
     				<p class="text-center">
-    				<button class="btn btn-danger md-close">Nope!</button>
-    				<a href="login.html" class="btn btn-success md-close">Yeah, I'm sure</a>
+    				<button class="btn btn-danger md-close">No!</button>
+    				<a href="/logout" class="btn btn-success md-close">Si, estoy seguro</a>
     				</p>
     			</div>
     		</div>
@@ -78,14 +78,16 @@
 
     <!-- Top Bar Start -->
     <div class="topbar">
-        <div class="topbar-left">
-            <div class="logo">
-                <h1><a href="#"><img src="/assets/img/logo.png" alt="Logo"></a></h1>
+            <div class="topbar-left">
+                <div class="logo">
+                    <h1><a href="/"><img src="/assets/img/logo.png" alt="Logo"></a></h1>
+                </div>
+                @if (!Auth::guest())
+                  <button class="button-menu-mobile open-left">
+                  <i class="fa fa-bars"></i>
+                @endif
+                </button>
             </div>
-            <button class="button-menu-mobile open-left">
-            <i class="fa fa-bars"></i>
-            </button>
-        </div>
         <!-- Button mobile view to collapse sidebar menu -->
         <div class="navbar navbar-default" role="navigation">
             <div class="container">
@@ -94,14 +96,25 @@
                     <ul class="nav navbar-nav navbar-right top-navbar">
 
                         <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
-                        <li class="dropdown topbar-profile">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="/images/users/user-35.jpg"></span> Jane <strong>Doe</strong> <i class="fa fa-caret-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Perfil</a></li>
-                                <li class="divider"></li>
-                                <li><a class="md-trigger" data-modal="logout-modal"><i class="icon-logout-1"></i> Logout</a></li>
-                            </ul>
-                        </li>
+
+                        @if (Auth::guest())
+                            <!-- <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/register') }}">Register</a></li> -->
+                        @else
+                            <li class="dropdown topbar-profile">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="/images/users/user-35.jpg"></span> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Perfil</a></li>
+                                    @if (Auth::user()->isAdmin)
+                                    <li><a href="#">Admin</a></li>
+                                    @endif
+                                    <li class="divider"></li>
+                                    <li><a class="md-trigger" data-modal="logout-modal"><i class="icon-logout-1"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        @endif
+
+
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -110,6 +123,11 @@
     </div>
     <!-- Top Bar End -->
     		    <!-- Left Sidebar Start -->
+            @if (!Auth::guest())
+
+
+
+
             <div class="left side-menu">
                 <div class="sidebar-inner slimscrollleft">
 
@@ -119,37 +137,52 @@
                     <hr class="divider" />
                     <div class="clearfix"></div>
                     <!--- Divider -->
+
                     <div id="sidebar-menu">
                         <ul>
-                          <li class='has_sub'><a href='/'>
+                          <li><a href='/'>
                             <i class='icon-home-3'></i>
                               <span>Home</span>
                               <span class="pull-right">
-                              </span></a>
+                              </a>
                           </li>
 
 
 
 
-                            <li class='has_sub'><a href='javascript:void(0);'>
-                              <i class='icon-megaphone'></i><span>Extras</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+                            <li class='has_sub'>
+                                  <a href='javascript:void(0);'>
+                                      <i class='fa fa-cogs'></i>
+                                      <span>Configuracion</span>
+                                      <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                                  </a>
                               <ul>
                                 <!-- <li><a href='maintenance.html'><span>Maintenance</span></a></li> -->
 
-                              <li class='has_sub'><a href='javascript:void(0);'><span>4 Level Menu</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul>
-                                <li class='has_sub'><a href='javascript:void(0);'><span>Sub Item - level 3</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul>
-                                  <li><a href='javascript:void(0);'><span>Sub Item - level 4</span></a></li></ul></li></ul></li>
-
-                                  <div class="clearfix"></div>
+                              <li class='has_sub'>
+                                  <a href='javascript:void(0);'>
+                                      <i class='fa fa-table'></i>
+                                      <span>Tablas</span>
+                                      <span class="pull-right">
+                                            <i class="fa fa-angle-down"></i>
+                                      </span>
+                                  </a>
+                                  <ul>
+                                    <li><a href='/clientes'><span>Clientes</span></a></li>
+                                    <li><a href='/ciudads'><span>Ciudades</span></a></li>
+                                    <li><a href='/provincias'><span>Provincias</span></a></li>
+                                  </ul>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            </ul>
                     </div>
                 <div class="clearfix"></div>
 
                 <br><br><br>
             </div>
-                <div class="left-footer">
-                  <p>Desarrollado por Codex S.A.</p>
-                </div>
             </div>
+                        @endif
             <!-- Left Sidebar End -->		    <!-- Right Sidebar Start -->
 
     		<!-- Start right content -->
@@ -158,7 +191,7 @@
     			<!-- Start Content here -->
     			<!-- ============================================================== -->
                 <div class="content">
-
+                      @yield('content')
     				    </div>
 
             </div>
