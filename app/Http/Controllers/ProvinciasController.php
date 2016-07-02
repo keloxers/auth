@@ -49,11 +49,11 @@ class ProvinciasController extends Controller
 
         ]);
 
-        if ($validator->fails()) {
-                    return back()->withInput()
-                                ->withErrors($validator)
-                                ->withInput();
-                }
+        // if ($validator->fails()) {
+        //             return back()->withInput()
+        //                         ->withErrors($validator)
+        //                         ->withInput();
+        //         }
 
 
         // return back()->withInput();
