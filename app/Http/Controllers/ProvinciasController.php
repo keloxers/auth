@@ -17,9 +17,9 @@ class ProvinciasController extends Controller
     public function index()
     {
         //
-        $provincias = Provincia::all();
-
-        return view('provincias.index', ['provincias' => $provincias]);
+        $provincias = Provincia::paginate(15);
+        $title = "Provincia";
+        return view('provincias.index', ['provincias' => $provincias, 'title' => $title ]);
     }
 
     /**
@@ -30,6 +30,8 @@ class ProvinciasController extends Controller
     public function create()
     {
         //
+        $title = "Agregar nueva provincia";
+        return view('provincias.create', ['title' => $title]);
     }
 
     /**
@@ -44,17 +46,22 @@ class ProvinciasController extends Controller
 
         $this->validate($request, [
               'provincia' => 'required|unique:provincias|max:255',
-              
+
         ]);
 
+        if ($validator->fails()) {
+                    return back()->withInput()
+                                ->withErrors($validator)
+                                ->withInput();
+                }
 
 
-
-
+        // return back()->withInput();
 
         $provincias = new Provincia;
         $provincias->provincia = $request->provincia;
         $provincias->save();
+        return redirect('/provincias');
     }
 
     /**
@@ -65,6 +72,9 @@ class ProvinciasController extends Controller
      */
     public function show($id)
     {
+      $provincia = Provincia::find($id);
+      $title = "Provincias";
+      return view('provincias.show', ['provincia' => $provincia,'title' => $title]);
         //
     }
 
@@ -77,7 +87,9 @@ class ProvinciasController extends Controller
     public function edit($id)
     {
         //
-        $provincias = Provincia::find($id);
+        $provincia = Provincia::find($id);
+        $title = "Editar provincia";
+        return view('provincias.edit', ['provincia' => $provincia,'title' => $title]);
 
 
     }
@@ -109,5 +121,7 @@ class ProvinciasController extends Controller
         //
         $provincias = Provincia::find($id);
         $provincias->delete();
+
+        return redirect('/provincias');
     }
 }
