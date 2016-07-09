@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\MessageBag;
 use App\Http\Requests;
 use App\Provincia;
+
+use Validator;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class ProvinciasController extends Controller
 {
@@ -44,19 +47,23 @@ class ProvinciasController extends Controller
     {
         //
 
-        $this->validate($request, [
-              'provincia' => 'required|unique:provincias|max:255',
+
+        $validator = Validator::make($request->all(), [
+                    'provincia' => 'required|unique:provincias|max:75',
 
         ]);
 
-        // if ($validator->fails()) {
-        //             return back()->withInput()
-        //                         ->withErrors($validator)
-        //                         ->withInput();
-        //         }
 
+        if ($validator->fails()) {
+          foreach($validator->messages()->getMessages() as $field_name => $messages) {
+            foreach($messages AS $message) {
+                $errors[] = $message;
+            }
+          }
+          return redirect()->back()->with('errors', $errors)->withInput();
+          die;
+        }
 
-        // return back()->withInput();
 
         $provincias = new Provincia;
         $provincias->provincia = $request->provincia;

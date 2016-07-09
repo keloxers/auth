@@ -18,7 +18,7 @@
 									<div class="row">
 										<div class="col-md-4">
 											<form role="form">
-											<input type="text" class="form-control" placeholder="Search...">
+											<input type="text" class="form-control" placeholder="Buscar...">
 											</form>
 										</div>
 										<div class="col-md-8">
