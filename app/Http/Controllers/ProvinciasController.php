@@ -114,7 +114,7 @@ class ProvinciasController extends Controller
         $provincias = Provincia::find($id);
         $provincias->provincia = $request->provincia;
         $provincias->save();
-
+        return redirect('/provincias');
     }
 
     /**
@@ -131,4 +131,47 @@ class ProvinciasController extends Controller
 
         return redirect('/provincias');
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function finder(Request $request)
+    {
+        //
+
+        $provincias = Provincia::where('provincia', 'like', '%'. $request->buscar . '%')->paginate(15);
+        $title = "Provincia: buscando " . $request->buscar;
+        return view('provincias.index', ['provincias' => $provincias, 'title' => $title ]);
+
+
+
+
+        // $validator = Validator::make($request->all(), [
+        //             'provincia' => 'required|unique:provincias|max:75',
+        //
+        // ]);
+        //
+        //
+        // if ($validator->fails()) {
+        //   foreach($validator->messages()->getMessages() as $field_name => $messages) {
+        //     foreach($messages AS $message) {
+        //         $errors[] = $message;
+        //     }
+        //   }
+        //   return redirect()->back()->with('errors', $errors)->withInput();
+        //   die;
+        // }
+        //
+        //
+        // $provincias = new Provincia;
+        // $provincias->provincia = $request->provincia;
+        // $provincias->save();
+        // return redirect('/provincias');
+    }
+
+
+
 }

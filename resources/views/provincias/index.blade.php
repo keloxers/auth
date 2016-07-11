@@ -17,9 +17,9 @@
 								<div class="data-table-toolbar">
 									<div class="row">
 										<div class="col-md-4">
-											<form role="form">
-											<input type="text" class="form-control" placeholder="Buscar...">
-											</form>
+											{{ Form::open(array('route' => 'provincias.finder')) }}
+											<input type="text" id="buscar" name="buscar" class="form-control" placeholder="Buscar...">
+											{{ Form::close() }}
 										</div>
 										<div class="col-md-8">
 											<div class="toolbar-btn-action">

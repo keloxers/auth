@@ -15,13 +15,12 @@
 
 Route::group(['middleware' => 'web'], function() {
   Route::auth();
-  // Route::get('/', function () {
-  //     return view('welcome');
-  // });
+
 
   Route::get('/', 'HomeController@index');
 
 
+  Route::post('/provincias/finder', [ 'as' => 'provincias.finder', 'uses' => 'ProvinciasController@finder']);
   Route::resource('provincias', 'ProvinciasController');
 
 

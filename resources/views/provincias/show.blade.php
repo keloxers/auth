@@ -3,34 +3,47 @@
 @section('content')
 
 
-<nav class="navbar navbar-inverse">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="{{ URL::to('/provincias') }}">Provincias</a>
-	</div>
-	<ul class="nav navbar-nav">
-		<li><a href="{{ URL::to('provincias/create') }}">Crear nueva provincia</a>
-	</ul>
-</nav>
+<div class="row">
+					<div class="col-md-12">
+						<div class="widget">
+							<div class="widget-header transparent">
+								<h2><a href="/provincias"><i class="icon-left"></i></a> <strong>{{ $title}}</h2>
+								<div class="additional-btn">
+									<a href="/provincias" class="hidden reload"><i class="icon-ccw-1"></i></a>
+									<a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
+									<a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>
+								</div>
+							</div>
+							<div class="widget-content">
 
-		<div class="col-sm-6">
-			<section class="panel panel-default">
-				<header class="panel-heading font-bold">Provincia</header>
-				<div class="panel-body">
-					{{ Form::open(array('url' => '/provincias/' . $provincia->id, 'class' => 'panel-body wrapper-lg')) }}
-					{{ Form::hidden('_method', 'DELETE') }}
+								<div class="widget-content padding">
+									{{ Form::open(array('url' => '/provincias/' . $provincia->id, 'class' => 'panel-body wrapper-lg')) }}
+									{{ Form::hidden('_method', 'DELETE') }}
+										<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Provincia</label>
+												<div class="col-sm-10">
+													 {{ $provincia->provincia }}
+												</div>
+											</div>
 
-						<div class="form-group">
-							<label>Provincia</label>
 
-							<div class="form-control input-lg">
-								{{ $provincia->provincia }}
-							</div><br>
+										</div>
+										<div class="widget-content padding">
+											<div class="form-group">
+												{{ Form::submit('Eliminar', array('class' => 'btn btn-warning')) }}
+												{{ Form::close() }}
+											</div>
+										</div>
 
-						{{ Form::submit('Eliminar', array('class' => 'btn btn-warning')) }}
-						{{ Form::close() }}
-				</div>
-			</section>
-		</div>
-	</div>
-<script src="/js/app.v2.js"></script>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+
+
+
+
 @stop
