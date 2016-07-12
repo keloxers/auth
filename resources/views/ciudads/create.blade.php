@@ -42,7 +42,7 @@
 											<label for="input-text" class="col-sm-2 control-label">Provincia</label>
 												<div class="col-sm-10">
 													{{ Form::text('provincia', '', array('id' =>'provincia', 'name' =>'provincia', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una provincia')) }}
-													{{ Form::hidden('provincia_id' , '', array('id' =>'provincia_id')) }}
+													{{ Form::hidden('provincias_id', '', array('id' => 'provincias_id', 'name' => 'provincias_id')) }}
 												</div>
 										</div>
 
@@ -75,7 +75,8 @@
 		$("#provincia").autocomplete({
 				source: "/provincias/search",
 				select: function( event, ui ) {
-					$( '#provincia_id' ).val( ui.item.id );
+					$('#provincias_id').val( ui.item.id );
+
 				}
 			});
 

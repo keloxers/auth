@@ -45,11 +45,10 @@ class CiudadsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
 
         $validator = Validator::make($request->all(), [
                     'ciudad' => 'required|unique:ciudads|max:75',
+                    'provincias_id' => 'exists:provincias,id'
 
         ]);
 
@@ -67,7 +66,7 @@ class CiudadsController extends Controller
 
         $ciudads = new Ciudad;
         $ciudads->ciudad = $request->ciudad;
-        $ciudads->provincias_id = 2;
+        $ciudads->provincias_id = $request->provincias_id;
         $ciudads->save();
         return redirect('/ciudads');
     }
