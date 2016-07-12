@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use App\Http\Requests;
-use App\Provincia;
-
+use App\Ciudad;
 
 use Validator;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class ProvinciasController extends Controller
+class CiudadsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +20,9 @@ class ProvinciasController extends Controller
     public function index()
     {
         //
-        $provincias = Provincia::paginate(15);
-        $title = "Provincia";
-        return view('provincias.index', ['provincias' => $provincias, 'title' => $title ]);
+        $ciudads = Ciudad::paginate(15);
+        $title = "Ciudades";
+        return view('ciudads.index', ['ciudads' => $ciudads, 'title' => $title ]);
     }
 
     /**
@@ -34,8 +33,8 @@ class ProvinciasController extends Controller
     public function create()
     {
         //
-        $title = "Agregar nueva provincia";
-        return view('provincias.create', ['title' => $title]);
+        $title = "Agregar nueva Ciudad";
+        return view('ciudads.create', ['title' => $title]);
     }
 
     /**
@@ -50,7 +49,7 @@ class ProvinciasController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-                    'provincia' => 'required|unique:provincias|max:75',
+                    'ciudad' => 'required|unique:ciudads|max:75',
 
         ]);
 
@@ -66,10 +65,11 @@ class ProvinciasController extends Controller
         }
 
 
-        $provincias = new Provincia;
-        $provincias->provincia = $request->provincia;
-        $provincias->save();
-        return redirect('/provincias');
+        $ciudads = new Ciudad;
+        $ciudads->ciudad = $request->ciudad;
+        $ciudads->provincias_id = 2;
+        $ciudads->save();
+        return redirect('/ciudads');
     }
 
     /**
@@ -80,9 +80,9 @@ class ProvinciasController extends Controller
      */
     public function show($id)
     {
-      $provincia = Provincia::find($id);
-      $title = "Provincias";
-      return view('provincias.show', ['provincia' => $provincia,'title' => $title]);
+      $ciudad = Ciudad::find($id);
+      $title = "Ciudades";
+      return view('ciudads.show', ['ciudad' => $ciudad,'title' => $title]);
         //
     }
 
@@ -95,9 +95,9 @@ class ProvinciasController extends Controller
     public function edit($id)
     {
         //
-        $provincia = Provincia::find($id);
-        $title = "Editar provincia";
-        return view('provincias.edit', ['provincia' => $provincia,'title' => $title]);
+        $ciudad = Ciudad::find($id);
+        $title = "Editar ciudad";
+        return view('ciudads.edit', ['ciudad' => $ciudad,'title' => $title]);
 
 
     }
@@ -112,10 +112,10 @@ class ProvinciasController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $provincias = Provincia::find($id);
-        $provincias->provincia = $request->provincia;
-        $provincias->save();
-        return redirect('/provincias');
+        $ciudads = Ciudad::find($id);
+        $ciudads->ciudad = $request->ciudad;
+        $ciudads->save();
+        return redirect('/ciudads');
     }
 
     /**
@@ -127,10 +127,10 @@ class ProvinciasController extends Controller
     public function destroy($id)
     {
         //
-        $provincias = Provincia::find($id);
-        $provincias->delete();
+        $ciudads = Ciudad::find($id);
+        $ciudads->delete();
 
-        return redirect('/provincias');
+        return redirect('/ciudads');
     }
 
     /**
@@ -143,38 +143,13 @@ class ProvinciasController extends Controller
     {
         //
 
-        $provincias = Provincia::where('provincia', 'like', '%'. $request->buscar . '%')->paginate(15);
-        $title = "Provincia: buscando " . $request->buscar;
-        return view('provincias.index', ['provincias' => $provincias, 'title' => $title ]);
+        $ciudads = Ciudad::where('ciudads', 'like', '%'. $request->buscar . '%')->paginate(15);
+        $title = "Ciudad: buscando " . $request->buscar;
+        return view('ciudads.index', ['ciudads' => $ciudads, 'title' => $title ]);
+
+
 
     }
-
-
-
-    public function search(Request $request){
-         $term = $request->term;
-
-        //  echo $term;
-        //  die;
-
-         $datos = Provincia::where('provincia', 'like', '%'. $request->term . '%')->get();
-         $adevol = array();
-         if (count($datos) > 0) {
-             foreach ($datos as $dato)
-                 {
-                     $adevol[] = array(
-                         'id' => $dato->id,
-                         'value' => $dato->provincia,
-                     );
-             }
-         } else {
-                     $adevol[] = array(
-                         'id' => 0,
-                         'value' => 'no hay coincidencias para ' .  $term
-                     );
-         }
-          return json_encode($adevol);
-     }
 
 
 

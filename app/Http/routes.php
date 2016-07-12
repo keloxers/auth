@@ -20,9 +20,15 @@ Route::group(['middleware' => 'web'], function() {
   Route::get('/', 'HomeController@index');
 
 
+  Route::get( '/provincias/search', array(
+      'as' => 'provincias.search',
+      'uses' => 'ProvinciasController@search'
+  ) );
   Route::post('/provincias/finder', [ 'as' => 'provincias.finder', 'uses' => 'ProvinciasController@finder']);
   Route::resource('provincias', 'ProvinciasController');
 
+  Route::post('/ciudads/finder', [ 'as' => 'ciudads.finder', 'uses' => 'CiudadsController@finder']);
+  Route::resource('ciudads', 'CiudadsController');
 
 
 

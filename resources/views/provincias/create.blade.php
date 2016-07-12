@@ -27,7 +27,7 @@
 							<div class="widget-content">
 
 								<div class="widget-content padding">
-									{{ Form::open(array('route' => 'provincias.store', 'class' => 'form-horizontal', 'role' => 'form')) }}
+									{{ Form::open(array('route' => 'provincias.store', 'class' => 'form-horizontal', 'role' => 'form',  'autocomplete' => 'off')) }}
 										<div class="form-group">
 										<label for="input-text" class="col-sm-2 control-label">Provincia</label>
 												<div class="col-sm-10">
