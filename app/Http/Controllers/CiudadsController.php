@@ -120,9 +120,32 @@ class CiudadsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+      $validator = Validator::make($request->all(), [
+                  'ciudad' => 'required|unique:ciudads,id,'. $request->id . '|max:75',
+                  'provincia' => 'required|exists:provincias,provincia'
+
+      ]);
+
+
+      if ($validator->fails()) {
+        foreach($validator->messages()->getMessages() as $field_name => $messages) {
+          foreach($messages AS $message) {
+              $errors[] = $message;
+          }
+        }
+        return redirect()->back()->with('errors', $errors)->withInput();
+        die;
+      }
+
+
+      $provincias = Provincia::where('provincia', $request->provincia)->first();
+
+
         //
         $ciudads = Ciudad::find($id);
         $ciudads->ciudad = $request->ciudad;
+        $ciudads->provincias_id = $provincias->id;
         $ciudads->save();
         return redirect('/ciudads');
     }

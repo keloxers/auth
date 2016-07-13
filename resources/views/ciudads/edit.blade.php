@@ -36,6 +36,7 @@
 												<div class="col-sm-10">
 													{{ Form::text('ciudad', $ciudad->ciudad, array('class' => 'form-control input-lg', 'placeholder'
 													 => 'Ingrese una ciudad')) }}
+													 {{ Form::hidden('id', $ciudad->id, array('id' => 'id', 'name' => 'id')) }}
 												</div>
 											</div>
 

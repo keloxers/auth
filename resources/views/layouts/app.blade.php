@@ -98,8 +98,8 @@
                         <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
 
                         @if (Auth::guest())
-                            <!-- <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li> -->
+                            <!-- <li><a href="{{ url('/login') }}">Login</a></li> -->
+                            <li><a href="{{ url('/register') }}">Registrarse</a></li>
                         @else
                             <li class="dropdown topbar-profile">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="/images/users/user-35.jpg"></span> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i></a>
