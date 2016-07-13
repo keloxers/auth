@@ -17,14 +17,22 @@
 							<div class="widget-content">
 
 								<div class="widget-content padding">
-									{{ Form::open(array('url' => '/ciudads/' . $ciudad->id, 'class' => 'panel-body wrapper-lg')) }}
+									{{ Form::open(array('url' => '/ciudads/' . $ciudad->id, 'class' => 'form-horizontal')) }}
 									{{ Form::hidden('_method', 'DELETE') }}
 										<div class="form-group">
-										<label for="input-text" class="col-sm-2 control-label">Ciudad</label>
+												<label for="input-text" class="col-sm-2 control-label">Ciudad</label>
 												<div class="col-sm-10">
 													 {{ $ciudad->ciudad }}
 												</div>
-											</div>
+										</div>
+										<div class="form-group">
+												<label for="input-text" class="col-sm-2 control-label">Provincia</label>
+												<div class="col-sm-10">
+													 {{ $ciudad->provincias->provincia }}
+												</div>
+										</div>
+
+
 
 
 										</div>

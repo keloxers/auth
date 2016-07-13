@@ -8,4 +8,12 @@ class Provincia extends Model
 {
     //
     protected $table = 'provincias';
+
+
+    public function ciudads()
+        {
+            return $this->hasMany('App\Ciudad');
+        }
+
+
 }

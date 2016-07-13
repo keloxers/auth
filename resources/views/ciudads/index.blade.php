@@ -33,7 +33,8 @@
 									<table data-sortable class="table table-hover table-striped">
 										<thead>
 											<tr>
-												<th>ciudad</th>
+												<th>Ciudad</th>
+												<th>Provincia</th>
 												<th>Acción</th>
 											</tr>
 										</thead>
@@ -43,6 +44,7 @@
 											@foreach ($ciudads as $ciudad)
 											<tr>
 												<td>{{ $ciudad->ciudad }}</td>
+												<td>{{ $ciudad->provincias->provincia }}</td>
 												<td>
 													<a href='/ciudads/{{ $ciudad->id }}/edit'>
 														<span class="label label-primary">Editar</span>

@@ -21,7 +21,7 @@ class CiudadsController extends Controller
     public function index()
     {
         //
-        $ciudads = Ciudad::paginate(15);
+        $ciudads = Ciudad::orderby('ciudad')->paginate(15);
         $title = "Ciudades";
         return view('ciudads.index', ['ciudads' => $ciudads, 'title' => $title ]);
     }
@@ -100,7 +100,7 @@ class CiudadsController extends Controller
         //
         $ciudad = Ciudad::find($id);
         $provincia = Provincia::find($ciudad->provincias_id);
-        
+
         $title = "Editar ciudad";
         return view('ciudads.edit', [
             'ciudad' => $ciudad,
@@ -152,7 +152,7 @@ class CiudadsController extends Controller
     {
         //
 
-        $ciudads = Ciudad::where('ciudads', 'like', '%'. $request->buscar . '%')->paginate(15);
+        $ciudads = Ciudad::where('ciudad', 'like', '%'. $request->buscar . '%')->orderby('ciudad')->paginate(15);
         $title = "Ciudad: buscando " . $request->buscar;
         return view('ciudads.index', ['ciudads' => $ciudads, 'title' => $title ]);
 

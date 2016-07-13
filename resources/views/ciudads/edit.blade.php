@@ -30,9 +30,9 @@
 							<div class="widget-content">
 
 								<div class="widget-content padding">
-									{{ Form::open(array('url' => URL::to('ciudads/' . $ciudad->id), 'method' => 'PUT', 'class' => 'panel-body wrapper-lg')) }}
+									{{ Form::open(array('url' => URL::to('ciudads/' . $ciudad->id), 'method' => 'PUT', 'class' => 'form-horizontal')) }}
 										<div class="form-group">
-										<label for="input-text" class="col-sm-2 control-label">Ciudad</label>
+												<label for="input-text" class="col-sm-2 control-label">Ciudad</label>
 												<div class="col-sm-10">
 													{{ Form::text('ciudad', $ciudad->ciudad, array('class' => 'form-control input-lg', 'placeholder'
 													 => 'Ingrese una ciudad')) }}
