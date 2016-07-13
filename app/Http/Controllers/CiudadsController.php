@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use App\Http\Requests;
 use App\Ciudad;
+use App\Provincia;
 
 use Validator;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
@@ -48,7 +49,7 @@ class CiudadsController extends Controller
 
         $validator = Validator::make($request->all(), [
                     'ciudad' => 'required|unique:ciudads|max:75',
-                    'provincias_id' => 'exists:provincias,id'
+                    'provincia' => 'required|exists:provincias,provincia'
 
         ]);
 
@@ -64,9 +65,12 @@ class CiudadsController extends Controller
         }
 
 
+        $provincias = Provincia::where('provincia', $request->provincia)->first();
+
+
         $ciudads = new Ciudad;
         $ciudads->ciudad = $request->ciudad;
-        $ciudads->provincias_id = $request->provincias_id;
+        $ciudads->provincias_id = $provincias->id;
         $ciudads->save();
         return redirect('/ciudads');
     }
@@ -95,8 +99,14 @@ class CiudadsController extends Controller
     {
         //
         $ciudad = Ciudad::find($id);
+        $provincia = Provincia::find($ciudad->provincias_id);
+        
         $title = "Editar ciudad";
-        return view('ciudads.edit', ['ciudad' => $ciudad,'title' => $title]);
+        return view('ciudads.edit', [
+            'ciudad' => $ciudad,
+            'provincia' => $provincia,
+            'title' => $title
+          ]);
 
 
     }

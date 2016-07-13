@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 
 <div class="row">
@@ -14,6 +17,16 @@
 									<a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>
 								</div>
 							</div>
+							@if(count(session('errors')) > 0)
+									<div class="alert alert-danger">
+											<ul>
+													@foreach (session('errors') as $error)
+															<li>{{ $error }}</li>
+													@endforeach
+											</ul>
+									</div>
+							@endif
+
 							<div class="widget-content">
 
 								<div class="widget-content padding">
@@ -24,16 +37,14 @@
 													{{ Form::text('ciudad', $ciudad->ciudad, array('class' => 'form-control input-lg', 'placeholder'
 													 => 'Ingrese una ciudad')) }}
 												</div>
-												<?php if ($errors->first('ciudad')) { ?>
+											</div>
 
-														<div class="alert alert-danger">
-																<button type="button" class="close" data-dismiss="alert">&times;</button>
-																<i class="fa fa-ban-circle"></i>
-																<strong>Ups... error!</strong>
-																<div class="alert-link">{{ $errors->first('ciudad') }}</div>
-															</div>
-
-													<?php } ?>
+											<div class="form-group">
+												<label for="input-text" class="col-sm-2 control-label">Provincia</label>
+													<div class="col-sm-10">
+														{{ Form::text('provincia', $provincia->provincia, array('id' =>'provincia', 'name' =>'provincia', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una provincia')) }}
+														{{ Form::hidden('provincias_id', $provincia->id, array('id' => 'provincias_id', 'name' => 'provincias_id')) }}
+													</div>
 											</div>
 
 
@@ -52,6 +63,26 @@
 					</div>
 
 
+
+					<script>
+
+						var jq = jQuery.noConflict();
+						jq(document).ready( function(){
+
+
+							$("#provincia").autocomplete({
+									source: "/provincias/search",
+									select: function( event, ui ) {
+										$('#provincias_id').val( ui.item.id );
+
+									}
+								});
+
+
+							});
+
+
+					</script>
 
 
 
