@@ -49,7 +49,7 @@ class CiudadsController extends Controller
 
         $validator = Validator::make($request->all(), [
                     'ciudad' => 'required|unique:ciudads|max:75',
-                    'provincia' => 'required|exists:provincias,provincia'
+                    'codigopostal' => 'required|unique:ciudads,codigopostal|max:10'
 
         ]);
 
@@ -70,6 +70,7 @@ class CiudadsController extends Controller
 
         $ciudads = new Ciudad;
         $ciudads->ciudad = $request->ciudad;
+        $ciudads->codigopostal = $request->codigopostal;
         $ciudads->provincias_id = $provincias->id;
         $ciudads->save();
         return redirect('/ciudads');
@@ -123,7 +124,7 @@ class CiudadsController extends Controller
 
       $validator = Validator::make($request->all(), [
                   'ciudad' => 'required|unique:ciudads,id,'. $request->id . '|max:75',
-                  'provincia' => 'required|exists:provincias,provincia'
+                  'codigopostal' => 'required|unique:ciudads,codigopostal|max:10'
 
       ]);
 
@@ -145,6 +146,7 @@ class CiudadsController extends Controller
         //
         $ciudads = Ciudad::find($id);
         $ciudads->ciudad = $request->ciudad;
+        $ciudads->codigopostal = $request->codigopostal;
         $ciudads->provincias_id = $provincias->id;
         $ciudads->save();
         return redirect('/ciudads');

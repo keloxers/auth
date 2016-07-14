@@ -34,6 +34,7 @@
 										<thead>
 											<tr>
 												<th>Ciudad</th>
+												<th>Codigo Postal</th>
 												<th>Provincia</th>
 												<th>Acción</th>
 											</tr>
@@ -44,6 +45,7 @@
 											@foreach ($ciudads as $ciudad)
 											<tr>
 												<td>{{ $ciudad->ciudad }}</td>
+												<td>{{ $ciudad->codigopostal }}</td>
 												<td>{{ $ciudad->provincias->provincia }}</td>
 												<td>
 													<a href='/ciudads/{{ $ciudad->id }}/edit'>

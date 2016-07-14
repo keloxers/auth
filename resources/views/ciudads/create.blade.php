@@ -39,6 +39,13 @@
 										</div>
 
 										<div class="form-group">
+											<label for="input-text" class="col-sm-2 control-label">Codigo Postal</label>
+												<div class="col-sm-10">
+													{{ Form::text('codigopostal', '', array('id' => 'codigopostal', 'name' => 'codigopostal', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una codigo postal')) }}
+												</div>
+										</div>
+
+										<div class="form-group">
 											<label for="input-text" class="col-sm-2 control-label">Provincia</label>
 												<div class="col-sm-10">
 													{{ Form::text('provincia', '', array('id' =>'provincia', 'name' =>'provincia', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una provincia')) }}
