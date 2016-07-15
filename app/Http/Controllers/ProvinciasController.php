@@ -13,6 +13,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class ProvinciasController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
