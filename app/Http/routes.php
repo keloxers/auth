@@ -33,5 +33,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/chofers/finder', [ 'as' => 'chofers.finder', 'uses' => 'ChofersController@finder']);
     Route::resource('chofers', 'ChofersController');
 
+    Route::post('/tiposdocumentos/finder', [ 'as' => 'tiposdocumentos.finder', 'uses' => 'TiposdocumentosController@finder']);
+    Route::resource('tiposdocumentos', 'TiposdocumentosController');
 
 });

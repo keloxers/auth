@@ -173,6 +173,7 @@
                                     <li><a href='/ciudads'><span>Ciudades</span></a></li>
                                     <li><a href='/provincias'><span>Provincias</span></a></li>
                                     <li><a href='/zonas'><span>Zonas</span></a></li>
+                                    <li><a href='/tiposdocumentos'><span>Tipos Documentos</span></a></li>
                                   </ul>
                               </li>
                             </ul>
