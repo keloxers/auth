@@ -29,7 +29,7 @@
 								<div class="widget-content padding">
 									{{ Form::open(array('route' => 'tiposdocumentos.store', 'class' => 'form-horizontal', 'role' => 'form',  'autocomplete' => 'off')) }}
 										<div class="form-group">
-										<label for="input-text" class="col-sm-2 control-label">Tiposdocumento</label>
+										<label for="input-text" class="col-sm-2 control-label">Tipo de Documento</label>
 												<div class="col-sm-10">
 													{{ Form::text('tiposdocumento', '', array('id' => 'tiposdocumento', 'name' => 'tiposdocumento', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese un Tipo de documento')) }}
 												</div>

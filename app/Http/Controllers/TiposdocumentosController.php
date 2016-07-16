@@ -23,7 +23,7 @@ class TiposdocumentosController extends Controller
     {
         //
         $tiposdocumentos = Tiposdocumento::paginate(15);
-        $title = "tiposdocumentos";
+        $title = "Tipos de documentos Fiscales";
         return view('tiposdocumentos.index', ['tiposdocumentos' => $tiposdocumentos, 'title' => $title ]);
     }
 
@@ -35,7 +35,7 @@ class TiposdocumentosController extends Controller
     public function create()
     {
         //
-        $title = "Agregar nueva tiposdocumento";
+        $title = "Agregar nuevo Tipo de Documento";
         return view('tiposdocumentos.create', ['title' => $title]);
     }
 
@@ -97,7 +97,7 @@ class TiposdocumentosController extends Controller
     {
         //
         $tiposdocumento = tiposdocumento::find($id);
-        $title = "Editar tiposdocumento";
+        $title = "Editar Tipo de Documentos";
         return view('tiposdocumentos.edit', ['tiposdocumento' => $tiposdocumento,'title' => $title]);
 
 

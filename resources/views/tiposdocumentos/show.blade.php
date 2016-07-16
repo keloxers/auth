@@ -22,7 +22,7 @@
 
 
 										<div class="form-group">
-												<label for="input-text" class="col-sm-2 control-label">Tiposdocumento</label>
+												<label for="input-text" class="col-sm-2 control-label">Tipo de documento</label>
 												<div class="col-sm-10">
 													 {{ $tiposdocumento->tiposdocumento }}
 												</div>

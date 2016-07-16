@@ -31,7 +31,7 @@
 								<div class="widget-content padding">
 									{{ Form::open(array('url' => URL::to('tiposdocumentos/' . $tiposdocumento->id), 'method' => 'PUT', 'class' => 'form-horizontal')) }}
 										<div class="form-group">
-										<label for="input-text" class="col-sm-2 control-label">Tiposdocumento</label>
+										<label for="input-text" class="col-sm-2 control-label">Tipo de documento</label>
 												<div class="col-sm-10">
 													{{ Form::text('tiposdocumento', $tiposdocumento->tiposdocumento, array('class' => 'form-control input-lg', 'placeholder'
 													 => 'Ingrese una tiposdocumento')) }}
