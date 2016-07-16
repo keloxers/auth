@@ -52,7 +52,7 @@ class ChofersController extends Controller
 
         $validator = Validator::make($request->all(), [
                     'chofer' => 'required|unique:chofers|max:75',
-                    'dni' => 'max:8',
+                    'dni' => 'max:10',
 
         ]);
 
