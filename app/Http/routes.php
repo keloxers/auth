@@ -27,5 +27,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/ciudads/finder', [ 'as' => 'ciudads.finder', 'uses' => 'CiudadsController@finder']);
     Route::resource('ciudads', 'CiudadsController');
 
+    Route::post('/zonas/finder', [ 'as' => 'zonas.finder', 'uses' => 'ZonasController@finder']);
+    Route::resource('zonas', 'ZonasController');
+
+    Route::post('/chofers/finder', [ 'as' => 'chofers.finder', 'uses' => 'ChofersController@finder']);
+    Route::resource('chofers', 'ChofersController');
+
 
 });
