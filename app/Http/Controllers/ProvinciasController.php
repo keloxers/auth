@@ -23,7 +23,7 @@ class ProvinciasController extends Controller
     {
         //
         $provincias = Provincia::paginate(15);
-        $title = "Provincia";
+        $title = "Provincias";
         return view('provincias.index', ['provincias' => $provincias, 'title' => $title ]);
     }
 
