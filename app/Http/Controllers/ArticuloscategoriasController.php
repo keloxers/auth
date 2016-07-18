@@ -23,7 +23,7 @@ class ArticuloscategoriasController extends Controller
     {
         //
         $articuloscategorias = Articuloscategoria::paginate(15);
-        $title = "articuloscategorias";
+        $title = "Articulos Categorias";
         return view('articuloscategorias.index', ['articuloscategorias' => $articuloscategorias, 'title' => $title ]);
     }
 
@@ -82,7 +82,7 @@ class ArticuloscategoriasController extends Controller
     public function show($id)
     {
       $articuloscategoria = Articuloscategoria::find($id);
-      $title = "articuloscategorias";
+      $title = "Articulos Categorias";
       return view('articuloscategorias.show', ['articuloscategoria' => $articuloscategoria,'title' => $title]);
         //
     }

@@ -33,7 +33,7 @@
 									<table data-sortable class="table table-hover table-striped">
 										<thead>
 											<tr>
-												<th>articuloscategoria</th>
+												<th>Articulos Categorias</th>
 												<th>Acción</th>
 											</tr>
 										</thead>
