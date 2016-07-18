@@ -23,7 +23,7 @@ class PedidostiposController extends Controller
     {
         //
         $pedidostipos = Pedidostipo::orderby('pedidostipo')->paginate(15);
-        $title = "Todos los Pedidos Tipos";
+        $title = "Pedidos Tipos";
         return view('pedidostipos.index', ['pedidostipos' => $pedidostipos, 'title' => $title ]);
     }
 

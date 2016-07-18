@@ -23,7 +23,7 @@ class ChofersController extends Controller
     {
         //
         $chofers = Chofer::paginate(15);
-        $title = "chofer";
+        $title = "Choferes";
         return view('chofers.index', ['chofers' => $chofers, 'title' => $title ]);
     }
 

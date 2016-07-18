@@ -23,7 +23,7 @@ class TiposdocumentosController extends Controller
     {
         //
         $tiposdocumentos = Tiposdocumento::paginate(15);
-        $title = "Tipos de documentos Fiscales";
+        $title = "Tipos de Documentos Fiscales";
         return view('tiposdocumentos.index', ['tiposdocumentos' => $tiposdocumentos, 'title' => $title ]);
     }
 
