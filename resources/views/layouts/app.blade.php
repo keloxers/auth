@@ -172,6 +172,7 @@
                                     <li><a href='/chofers'><span>Choferes</span></a></li>
                                     <li><a href='/clientes'><span>Clientes</span></a></li>
                                     <li><a href='/ciudads'><span>Ciudades</span></a></li>
+                                    <li><a href='/depositos'><span>Depositos</span></a></li>
                                     <li><a href='/provincias'><span>Provincias</span></a></li>
                                     <li><a href='/pedidostipos'><span>Pedidos Tipos</span></a></li>
                                     <li><a href='/zonas'><span>Zonas</span></a></li>
