@@ -41,4 +41,9 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::post('/articuloscategorias/finder', [ 'as' => 'articuloscategorias.finder', 'uses' => 'ArticuloscategoriasController@finder']);
     Route::resource('articuloscategorias', 'ArticuloscategoriasController');
+
+    Route::post('/depositos/finder', [ 'as' => 'depositos.finder', 'uses' => 'DepositosController@finder']);
+    Route::resource('depositos', 'DepositosController');
+
+
 });
