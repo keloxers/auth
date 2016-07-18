@@ -36,4 +36,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/tiposdocumentos/finder', [ 'as' => 'tiposdocumentos.finder', 'uses' => 'TiposdocumentosController@finder']);
     Route::resource('tiposdocumentos', 'TiposdocumentosController');
 
+    Route::post('/pedidostipos/finder', [ 'as' => 'pedidostipos.finder', 'uses' => 'PedidostiposController@finder']);
+    Route::resource('pedidostipos', 'PedidostiposController');
+
+
 });
