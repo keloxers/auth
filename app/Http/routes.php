@@ -39,5 +39,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/pedidostipos/finder', [ 'as' => 'pedidostipos.finder', 'uses' => 'PedidostiposController@finder']);
     Route::resource('pedidostipos', 'PedidostiposController');
 
-
+    Route::post('/articuloscategorias/finder', [ 'as' => 'articuloscategorias.finder', 'uses' => 'ArticuloscategoriasController@finder']);
+    Route::resource('articuloscategorias', 'ArticuloscategoriasController');
 });

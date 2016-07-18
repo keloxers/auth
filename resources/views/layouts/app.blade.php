@@ -168,6 +168,7 @@
                                       </span>
                                   </a>
                                   <ul>
+                                    <li><a href='/articuloscategorias'><span>Articulos Categorias</span></a></li>
                                     <li><a href='/chofers'><span>Choferes</span></a></li>
                                     <li><a href='/clientes'><span>Clientes</span></a></li>
                                     <li><a href='/ciudads'><span>Ciudades</span></a></li>

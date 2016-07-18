@@ -7,9 +7,9 @@
 					<div class="col-md-12">
 						<div class="widget">
 							<div class="widget-header transparent">
-								<h2><a href="/zonas"><i class="icon-left"></i></a> <strong>{{ $title}}</h2>
+								<h2><a href="/articuloscategorias"><i class="icon-left"></i></a> <strong>{{ $title}}</h2>
 								<div class="additional-btn">
-									<a href="/zonas" class="hidden reload"><i class="icon-ccw-1"></i></a>
+									<a href="/articuloscategorias" class="hidden reload"><i class="icon-ccw-1"></i></a>
 									<a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
 									<a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>
 								</div>
@@ -17,14 +17,14 @@
 							<div class="widget-content">
 
 								<div class="widget-content padding">
-									{{ Form::open(array('url' => '/zonas/' . $zona->id, 'class' => 'panel-body wrapper-lg')) }}
+									{{ Form::open(array('url' => '/articuloscategorias/' . $articuloscategoria->id, 'class' => 'panel-body wrapper-lg')) }}
 									{{ Form::hidden('_method', 'DELETE') }}
 
 
 										<div class="form-group">
-												<label for="input-text" class="col-sm-2 control-label">zona</label>
+												<label for="input-text" class="col-sm-2 control-label">articuloscategoria</label>
 												<div class="col-sm-10">
-													 {{ $zona->zona }}
+													 {{ $articuloscategoria->articuloscategoria }}
 												</div>
 											</div>
 
