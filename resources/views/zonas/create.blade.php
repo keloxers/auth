@@ -29,7 +29,7 @@
 								<div class="widget-content padding">
 									{{ Form::open(array('route' => 'zonas.store', 'class' => 'form-horizontal', 'role' => 'form',  'autocomplete' => 'off')) }}
 										<div class="form-group">
-										<label for="input-text" class="col-sm-2 control-label">Zona</label>
+										<label for="input-text" class="col-sm-2 control-label">zona</label>
 												<div class="col-sm-10">
 													{{ Form::text('zona', '', array('id' => 'zona', 'name' => 'zona', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una zona')) }}
 												</div>
