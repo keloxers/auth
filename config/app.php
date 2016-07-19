@@ -160,6 +160,9 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        Elibyy\TCPDF\ServiceProvider::class,
+
+
     ],
 
     /*
@@ -207,6 +210,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'PDF' => Elibyy\TCPDF\Facades\TCPDF::class
+
 
     ],
 
