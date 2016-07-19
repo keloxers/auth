@@ -112,7 +112,26 @@ class ZonasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+        $validator = Validator::make($request->all(), [
+                    'zona' => 'required|unique:zonas,id,'. $request->id . '|max:75',
+
+
+        ]);
+
+
+        if ($validator->fails()) {
+          foreach($validator->messages()->getMessages() as $field_name => $messages) {
+            foreach($messages AS $message) {
+                $errors[] = $message;
+            }
+          }
+          return redirect()->back()->with('errors', $errors)->withInput();
+          die;
+        }
+
+
         $zonas = Zona::find($id);
         $zonas->zona = $request->zona;
         $zonas->save();

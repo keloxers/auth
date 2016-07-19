@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use App\Http\Requests;
-use App\Deposito;
+use App\Proveedorescategoria;
 
 
 use Validator;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class depositosController extends Controller
+class ProveedorescategoriasController extends Controller
 {
 
     /**
@@ -22,9 +22,9 @@ class depositosController extends Controller
     public function index()
     {
         //
-        $depositos = Deposito::paginate(15);
-        $title = "Depositos";
-        return view('depositos.index', ['depositos' => $depositos, 'title' => $title ]);
+        $proveedorescategorias = Proveedorescategoria::paginate(15);
+        $title = "proveedorescategorias";
+        return view('proveedorescategorias.index', ['proveedorescategorias' => $proveedorescategorias, 'title' => $title ]);
     }
 
     /**
@@ -35,8 +35,8 @@ class depositosController extends Controller
     public function create()
     {
         //
-        $title = "Agregar nuevo deposito";
-        return view('depositos.create', ['title' => $title]);
+        $title = "Agregar nueva proveedorescategoria";
+        return view('proveedorescategorias.create', ['title' => $title]);
     }
 
     /**
@@ -51,9 +51,7 @@ class depositosController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-                    'deposito' => 'required|unique:depositos|max:75',
-                    'numero' => 'required|max:75',
-                    'capacidadkg' => 'numeric',
+                    'proveedorescategoria' => 'required|unique:proveedorescategorias|max:75',
 
         ]);
 
@@ -69,12 +67,10 @@ class depositosController extends Controller
         }
 
 
-        $depositos = new Deposito;
-        $depositos->deposito = $request->deposito;
-        $depositos->numero = $request->numero;
-        $depositos->capacidadkg = $request->capacidadkg;
-        $depositos->save();
-        return redirect('/depositos');
+        $proveedorescategorias = new Proveedorescategoria;
+        $proveedorescategorias->proveedorescategoria = $request->proveedorescategoria;
+        $proveedorescategorias->save();
+        return redirect('/proveedorescategorias');
     }
 
     /**
@@ -85,9 +81,9 @@ class depositosController extends Controller
      */
     public function show($id)
     {
-      $deposito = Deposito::find($id);
-      $title = "Depositos";
-      return view('depositos.show', ['deposito' => $deposito,'title' => $title]);
+      $proveedorescategoria = Proveedorescategoria::find($id);
+      $title = "proveedorescategorias";
+      return view('proveedorescategorias.show', ['proveedorescategoria' => $proveedorescategoria,'title' => $title]);
         //
     }
 
@@ -100,9 +96,9 @@ class depositosController extends Controller
     public function edit($id)
     {
         //
-        $deposito = Deposito::find($id);
-        $title = "Editar Deposito";
-        return view('depositos.edit', ['deposito' => $deposito,'title' => $title]);
+        $proveedorescategoria = Proveedorescategoria::find($id);
+        $title = "Editar proveedorescategoria";
+        return view('proveedorescategorias.edit', ['proveedorescategoria' => $proveedorescategoria,'title' => $title]);
 
 
     }
@@ -117,34 +113,29 @@ class depositosController extends Controller
     public function update(Request $request, $id)
     {
 
-      $validator = Validator::make($request->all(), [
-                  'deposito' => 'required|unique:depositos,id,'. $request->id . '|max:75',
-                  'numero' => 'required|max:75',
-                  'capacidadkg' => 'numeric',
+
+        $validator = Validator::make($request->all(), [
+                    'proveedorescategoria' => 'required|unique:proveedorescategorias,id,'. $request->id . '|max:75',
 
 
-      ]);
+        ]);
 
 
-      if ($validator->fails()) {
-        foreach($validator->messages()->getMessages() as $field_name => $messages) {
-          foreach($messages AS $message) {
-              $errors[] = $message;
+        if ($validator->fails()) {
+          foreach($validator->messages()->getMessages() as $field_name => $messages) {
+            foreach($messages AS $message) {
+                $errors[] = $message;
+            }
           }
+          return redirect()->back()->with('errors', $errors)->withInput();
+          die;
         }
-        return redirect()->back()->with('errors', $errors)->withInput();
-        die;
-      }
 
 
-        //
-        $depositos = Deposito::find($id);
-        $depositos->deposito = $request->deposito;
-        $depositos->numero = $request->numero;
-        $depositos->capacidadkg = $request->capacidadkg;
-
-        $depositos->save();
-        return redirect('/depositos');
+        $proveedorescategorias = Proveedorescategoria::find($id);
+        $proveedorescategorias->proveedorescategoria = $request->proveedorescategoria;
+        $proveedorescategorias->save();
+        return redirect('/proveedorescategorias');
     }
 
     /**
@@ -156,10 +147,10 @@ class depositosController extends Controller
     public function destroy($id)
     {
         //
-        $depositos = Deposito::find($id);
-        $depositos->delete();
+        $proveedorescategorias = Proveedorescategoria::find($id);
+        $proveedorescategorias->delete();
 
-        return redirect('/depositos');
+        return redirect('/proveedorescategorias');
     }
 
     /**
@@ -172,9 +163,9 @@ class depositosController extends Controller
     {
         //
 
-        $depositos = Deposito::where('deposito', 'like', '%'. $request->buscar . '%')->paginate(15);
-        $title = "Deposito: buscando " . $request->buscar;
-        return view('depositos.index', ['depositos' => $depositos, 'title' => $title ]);
+        $proveedorescategorias = Proveedorescategoria::where('proveedorescategoria', 'like', '%'. $request->buscar . '%')->paginate(15);
+        $title = "proveedorescategoria: buscando " . $request->buscar;
+        return view('proveedorescategorias.index', ['proveedorescategorias' => $proveedorescategorias, 'title' => $title ]);
 
     }
 
@@ -186,14 +177,14 @@ class depositosController extends Controller
         //  echo $term;
         //  die;
 
-         $datos = Deposito::where('deposito', 'like', '%'. $request->term . '%')->get();
+         $datos = Proveedorescategoria::where('proveedorescategoria', 'like', '%'. $request->term . '%')->get();
          $adevol = array();
          if (count($datos) > 0) {
              foreach ($datos as $dato)
                  {
                      $adevol[] = array(
                          'id' => $dato->id,
-                         'value' => $dato->deposito,
+                         'value' => $dato->proveedorescategoria,
                      );
              }
          } else {
