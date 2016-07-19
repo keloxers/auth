@@ -22,7 +22,7 @@
 
 
 										<div class="form-group">
-												<label for="input-text" class="col-sm-2 control-label">proveedorescategoria</label>
+												<label for="input-text" class="col-sm-2 control-label">Proveedores Categoria</label>
 												<div class="col-sm-10">
 													 {{ $proveedorescategoria->proveedorescategoria }}
 												</div>

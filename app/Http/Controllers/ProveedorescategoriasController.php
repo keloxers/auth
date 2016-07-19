@@ -23,7 +23,7 @@ class ProveedorescategoriasController extends Controller
     {
         //
         $proveedorescategorias = Proveedorescategoria::paginate(15);
-        $title = "proveedorescategorias";
+        $title = "Proveedores Categorias";
         return view('proveedorescategorias.index', ['proveedorescategorias' => $proveedorescategorias, 'title' => $title ]);
     }
 
@@ -35,7 +35,7 @@ class ProveedorescategoriasController extends Controller
     public function create()
     {
         //
-        $title = "Agregar nueva proveedorescategoria";
+        $title = "Agregar nuevo Proveedor Categoria";
         return view('proveedorescategorias.create', ['title' => $title]);
     }
 
@@ -82,7 +82,7 @@ class ProveedorescategoriasController extends Controller
     public function show($id)
     {
       $proveedorescategoria = Proveedorescategoria::find($id);
-      $title = "proveedorescategorias";
+      $title = "Proveedor Categoria";
       return view('proveedorescategorias.show', ['proveedorescategoria' => $proveedorescategoria,'title' => $title]);
         //
     }
@@ -97,7 +97,7 @@ class ProveedorescategoriasController extends Controller
     {
         //
         $proveedorescategoria = Proveedorescategoria::find($id);
-        $title = "Editar proveedorescategoria";
+        $title = "Editar Proveedor Categoria";
         return view('proveedorescategorias.edit', ['proveedorescategoria' => $proveedorescategoria,'title' => $title]);
 
 

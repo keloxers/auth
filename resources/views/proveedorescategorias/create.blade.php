@@ -29,12 +29,11 @@
 								<div class="widget-content padding">
 									{{ Form::open(array('route' => 'proveedorescategorias.store', 'class' => 'form-horizontal', 'role' => 'form',  'autocomplete' => 'off')) }}
 										<div class="form-group">
-										<label for="input-text" class="col-sm-2 control-label">proveedorescategoria</label>
+												<label for="input-text" class="col-sm-2 control-label">Proveedor Categoria</label>
 												<div class="col-sm-10">
 													{{ Form::text('proveedorescategoria', '', array('id' => 'proveedorescategoria', 'name' => 'proveedorescategoria', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una proveedorescategoria')) }}
 												</div>
-											</div>
-
+										</div>
 
 										</div>
 										<div class="widget-content padding">

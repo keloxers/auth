@@ -31,7 +31,7 @@
 								<div class="widget-content padding">
 									{{ Form::open(array('url' => URL::to('proveedorescategorias/' . $proveedorescategoria->id), 'method' => 'PUT', 'class' => 'form-horizontal')) }}
 										<div class="form-group">
-										<label for="input-text" class="col-sm-2 control-label">proveedorescategoria</label>
+										<label for="input-text" class="col-sm-2 control-label">Proveedor Categoria</label>
 												<div class="col-sm-10">
 													{{ Form::text('proveedorescategoria', $proveedorescategoria->proveedorescategoria, array('class' => 'form-control input-lg', 'placeholder'
 													 => 'Ingrese una proveedorescategoria')) }}

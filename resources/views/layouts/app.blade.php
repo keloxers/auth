@@ -174,7 +174,7 @@
                                     <li><a href='/ciudads'><span>Ciudades</span></a></li>
                                     <li><a href='/depositos'><span>Depositos</span></a></li>
                                     <li><a href='/provincias'><span>Provincias</span></a></li>
-                                    <li><a href='/Proveedorescategorias'><span>Proveedores Categorias</span></a></li>
+                                    <li><a href='/proveedorescategorias'><span>Proveedores Categorias</span></a></li>
                                     <li><a href='/pedidostipos'><span>Pedidos Tipos</span></a></li>
                                     <li><a href='/zonas'><span>Zonas</span></a></li>
                                     <li><a href='/tiposdocumentos'><span>Documentos Fiscales</span></a></li>
