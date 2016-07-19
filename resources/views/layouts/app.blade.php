@@ -178,6 +178,7 @@
                                     <li><a href='/pedidostipos'><span>Pedidos Tipos</span></a></li>
                                     <li><a href='/zonas'><span>Zonas</span></a></li>
                                     <li><a href='/tiposdocumentos'><span>Documentos Fiscales</span></a></li>
+                                    <li><a href='/devolucionesmotivos'><span>Devoluciones Motivos</span></a></li>
                                   </ul>
                               </li>
                             </ul>

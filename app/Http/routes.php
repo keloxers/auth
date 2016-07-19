@@ -48,6 +48,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/proveedorescategorias/finder', [ 'as' => 'proveedorescategorias.finder', 'uses' => 'ProveedorescategoriasController@finder']);
     Route::resource('proveedorescategorias', 'ProveedorescategoriasController');
 
+    Route::post('/devolucionesmotivos/finder', [ 'as' => 'devolucionesmotivos.finder', 'uses' => 'DevolucionesmotivosController@finder']);
+    Route::resource('devolucionesmotivos', 'DevolucionesmotivosController');
 
 
 });
