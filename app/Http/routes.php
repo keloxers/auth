@@ -30,6 +30,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/zonas/finder', [ 'as' => 'zonas.finder', 'uses' => 'ZonasController@finder']);
     Route::resource('zonas', 'ZonasController');
 
+    Route::post('/condicionesventas/finder', [ 'as' => 'condicionesventas.finder', 'uses' => 'CondicionesventasController@finder']);
+    Route::resource('condicionesventas', 'CondicionesventasController');
+
+
     Route::post('/chofers/finder', [ 'as' => 'chofers.finder', 'uses' => 'ChofersController@finder']);
     Route::resource('chofers', 'ChofersController');
 
