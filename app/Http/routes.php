@@ -51,9 +51,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/devolucionesmotivos/finder', [ 'as' => 'devolucionesmotivos.finder', 'uses' => 'DevolucionesmotivosController@finder']);
     Route::resource('devolucionesmotivos', 'DevolucionesmotivosController');
 
+<<<<<<< Updated upstream
     Route::post('/motivosajustesstocks/finder', [ 'as' => 'motivosajustesstocks.finder', 'uses' => 'MotivosajustesstocksController@finder']);
     Route::resource('motivosajustesstocks', 'MotivosajustesstocksController');
 
+=======
+    Route::post('/pedidostiposbonificacions/finder', [ 'as' => 'pedidostiposbonificacions.finder', 'uses' => 'PedidostiposbonificacionsController@finder']);
+    Route::resource('pedidostiposbonificacions', 'PedidostiposbonificacionsController');
+>>>>>>> Stashed changes
 
 
 });

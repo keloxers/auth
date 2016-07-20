@@ -180,9 +180,13 @@
                                     <li><a href='/tiposdocumentos'><span>Documentos Fiscales</span></a></li>
 <<<<<<< Updated upstream
                                     <li><a href='/devolucionesmotivos'><span>Devoluciones Motivos</span></a></li>
+<<<<<<< Updated upstream
 =======
                                     <li><a href='/motivosajustesstocks'><span>Motivos Ajustes Stock</span></a></li>
 
+>>>>>>> Stashed changes
+=======
+                                    <li><a href='/pedidostiposbonificacions'><span>Pedidos Tipos de Bonificaciones</span></a></li>
 >>>>>>> Stashed changes
                                   </ul>
                               </li>
