@@ -174,22 +174,14 @@
                                     <li><a href='/clientes'><span>Clientes</span></a></li>
                                     <li><a href='/condicionesventas'><span>Condiciones Ventas</span></a></li>
                                     <li><a href='/depositos'><span>Depositos</span></a></li>
+                                    <li><a href='/devolucionesmotivos'><span>Devoluciones Motivos</span></a></li>
                                     <li><a href='/tiposdocumentos'><span>Documentos Fiscales</span></a></li>
                                     <li><a href='/provincias'><span>Provincias</span></a></li>
                                     <li><a href='/proveedorescategorias'><span>Proveedores Categorias</span></a></li>
                                     <li><a href='/pedidostipos'><span>Pedidos Tipos</span></a></li>
                                     <li><a href='/zonas'><span>Zonas</span></a></li>
-
-<<<<<<< Updated upstream
-                                    <li><a href='/devolucionesmotivos'><span>Devoluciones Motivos</span></a></li>
-<<<<<<< Updated upstream
-=======
                                     <li><a href='/motivosajustesstocks'><span>Motivos Ajustes Stock</span></a></li>
-
->>>>>>> Stashed changes
-=======
                                     <li><a href='/pedidostiposbonificacions'><span>Pedidos Tipos de Bonificaciones</span></a></li>
->>>>>>> Stashed changes
                                   </ul>
                               </li>
                             </ul>
