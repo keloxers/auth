@@ -2,7 +2,7 @@
     <html>
         <head>
             <meta charset="UTF-8">
-            <title>Codex | Sipyl2</title>
+            <title>Codex | Admin</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="description" content="">
@@ -168,20 +168,22 @@
                                       </span>
                                   </a>
                                   <ul>
+                                    <li><a href='/articulos'><span>Articulos</span></a></li>
                                     <li><a href='/articuloscategorias'><span>Articulos Categorias</span></a></li>
-                                    <li><a href='/chofers'><span>Choferes</span></a></li>
+                                    <!-- <li><a href='/chofers'><span>Choferes</span></a></li> -->
                                     <li><a href='/ciudads'><span>Ciudades</span></a></li>
                                     <li><a href='/clientes'><span>Clientes</span></a></li>
                                     <li><a href='/condicionesventas'><span>Condiciones Ventas</span></a></li>
                                     <li><a href='/depositos'><span>Depositos</span></a></li>
-                                    <li><a href='/devolucionesmotivos'><span>Devoluciones Motivos</span></a></li>
+                                    <!-- <li><a href='/devolucionesmotivos'><span>Devoluciones Motivos</span></a></li> -->
                                     <li><a href='/tiposdocumentos'><span>Documentos Fiscales</span></a></li>
+                                    <li><a href='/proveedors'><span>Proveedores</span></a></li>
                                     <li><a href='/provincias'><span>Provincias</span></a></li>
-                                    <li><a href='/proveedorescategorias'><span>Proveedores Categorias</span></a></li>
-                                    <li><a href='/pedidostipos'><span>Pedidos Tipos</span></a></li>
-                                    <li><a href='/zonas'><span>Zonas</span></a></li>
+                                    <!-- <li><a href='/proveedorescategorias'><span>Proveedores Categorias</span></a></li> -->
+                                    <!-- <li><a href='/pedidostipos'><span>Pedidos Tipos</span></a></li> -->
+                                    <!-- <li><a href='/zonas'><span>Zonas</span></a></li> -->
                                     <li><a href='/motivosajustesstocks'><span>Motivos Ajustes Stock</span></a></li>
-                                    <li><a href='/pedidostiposbonificacions'><span>Pedidos Tipos de Bonificaciones</span></a></li>
+                                    <!-- <li><a href='/pedidostiposbonificacions'><span>Pedidos Tipos de Bonificaciones</span></a></li> -->
                                   </ul>
                               </li>
                             </ul>

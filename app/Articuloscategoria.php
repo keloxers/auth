@@ -10,10 +10,10 @@ class Articuloscategoria extends Model
     protected $table = 'articuloscategorias';
 
 
-    // public function ciudads()
-    //     {
-    //         return $this->hasMany('App\Ciudad');
-    //     }
+    public function articulos()
+        {
+            return $this->hasMany('App\Articulo');
+        }
 
 
 }

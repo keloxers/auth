@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('provincias', 'ProvinciasController');
 
     Route::post('/ciudads/finder', [ 'as' => 'ciudads.finder', 'uses' => 'CiudadsController@finder']);
+    Route::get( '/ciudads/search', array('as' => 'ciudads.search', 'uses' => 'CiudadsController@search'));
     Route::resource('ciudads', 'CiudadsController');
 
     Route::post('/zonas/finder', [ 'as' => 'zonas.finder', 'uses' => 'ZonasController@finder']);
@@ -44,6 +45,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('pedidostipos', 'PedidostiposController');
 
     Route::post('/articuloscategorias/finder', [ 'as' => 'articuloscategorias.finder', 'uses' => 'ArticuloscategoriasController@finder']);
+    Route::get( '/articuloscategorias/search', array('as' => 'articuloscategorias.search', 'uses' => 'ArticuloscategoriasController@search'));
     Route::resource('articuloscategorias', 'ArticuloscategoriasController');
 
     Route::post('/depositos/finder', [ 'as' => 'depositos.finder', 'uses' => 'DepositosController@finder']);
@@ -60,6 +62,17 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::post('/pedidostiposbonificacions/finder', [ 'as' => 'pedidostiposbonificacions.finder', 'uses' => 'PedidostiposbonificacionsController@finder']);
     Route::resource('pedidostiposbonificacions', 'PedidostiposbonificacionsController');
+
+    Route::post('/articulos/finder', [ 'as' => 'articulos.finder', 'uses' => 'ArticulosController@finder']);
+    Route::resource('articulos', 'ArticulosController');
+
+    Route::post('/proveedors/finder', [ 'as' => 'proveedors.finder', 'uses' => 'ProveedorsController@finder']);
+    Route::get( '/proveedors/search', array('as' => 'proveedors.search', 'uses' => 'ProveedorsController@search'));
+    Route::resource('proveedors', 'ProveedorsController');
+
+    Route::get( '/tipoivas/search', array('as' => 'tipoivas.search', 'uses' => 'TipoivasController@search'));
+
+
 
 
 });
