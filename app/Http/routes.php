@@ -72,6 +72,9 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get( '/tipoivas/search', array('as' => 'tipoivas.search', 'uses' => 'TipoivasController@search'));
 
+    Route::post('/compras/finder', [ 'as' => 'compras.finder', 'uses' => 'ComprasController@finder']);
+    Route::resource('compras', 'ComprasController');
+
 
 
 

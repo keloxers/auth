@@ -74,11 +74,8 @@
 				</div>
 
 <script>
-
 	var jq = jQuery.noConflict();
 	jq(document).ready( function(){
-
-
 		$("#provincia").autocomplete({
 				source: "/provincias/search",
 				select: function( event, ui ) {
@@ -86,11 +83,7 @@
 
 				}
 			});
-
-
 		});
-
-
 </script>
 
 

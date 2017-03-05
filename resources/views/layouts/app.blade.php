@@ -187,6 +187,13 @@
                                   </ul>
                               </li>
                             </ul>
+                            <li><a href='/compras'>
+                              <i class='glyphicon glyphicon-shopping-cart'></i>
+                                <span>Compras</span>
+                                <span class="pull-right">
+                                </a>
+                            </li>
+
                             <div class="clearfix"></div>
                             </ul>
                     </div>
