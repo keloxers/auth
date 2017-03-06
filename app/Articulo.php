@@ -15,5 +15,9 @@ class Articulo extends Model
         return $this->belongsTo('App\Articuloscategoria');
     }
 
+    public function comprasdetalles()
+    {
+        return $this->hasMany('App\Comprasdetalle');
+    }
 
 }

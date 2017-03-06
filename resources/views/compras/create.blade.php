@@ -42,16 +42,6 @@
 											</div>
 									</div>
 
-
-
-										<div class="form-group">
-										<label for="input-text" class="col-sm-2 control-label">articuloscategoria</label>
-												<div class="col-sm-10">
-													{{ Form::text('articuloscategoria', '', array('id' => 'articuloscategoria', 'name' => 'articuloscategoria', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una articuloscategoria')) }}
-												</div>
-											</div>
-
-
 										</div>
 										<div class="widget-content padding">
 											<div class="form-group">

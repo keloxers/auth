@@ -14,6 +14,9 @@ class Proveedor extends Model
             return $this->belongsTo('App\Tipoiva');
         }
 
-
+    public function compras()
+        {
+            return $this->hasMany('App\Compra');
+        }
 
 }

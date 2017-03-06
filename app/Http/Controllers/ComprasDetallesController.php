@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use App\Http\Requests;
 use App\Compra;
+use App\Comprasdetalle;
 use DB;
 
 use Validator;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class ComprasController extends Controller
+class ComprasdetallesController extends Controller
 {
 
     /**
@@ -19,12 +20,12 @@ class ComprasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
-        $compras = Compra::paginate(15);
-        $title = "Compras";
-        return view('compras.index', ['compras' => $compras, 'title' => $title ]);
+        $compra = Compra::find($id);
+        $comprasdetalles = Comprasdetalle::paginate(15);
+        $title = "Compras Detalles";
+        return view('comprasdetalles.index', ['comprasdetalles' => $comprasdetalles, 'compra' => $compra, 'title' => $title ]);
     }
 
     /**
@@ -32,11 +33,13 @@ class ComprasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
-        $title = "Compras";
-        return view('compras.create', ['title' => $title]);
+        $compra = Compra::find($id);
+
+        $title = "Compras Detalles";
+        return view('comprasdetalles.create', ['compra' => $compra, 'title' => $title]);
     }
 
     /**
@@ -51,7 +54,8 @@ class ComprasController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-                    'proveedor' => 'required|exists:proveedors,proveedor',
+                    'deposito' => 'required|exists:depositos,deposito',
+                    'articulo' => 'required|exists:articulos,articulo',
 
         ]);
 
@@ -66,15 +70,17 @@ class ComprasController extends Controller
           die;
         }
 
-        $proveedors_id = DB::table('proveedors')->where('proveedor', $request->proveedor)->value('id');
+        $depositos_id = DB::table('depositos')->where('deposito', $request->deposito)->value('id');
+        $articulos_id = DB::table('articulos')->where('articulo', $request->articulo)->value('id');
 
-        $compra = new Compra;
-        $compra->proveedors_id = $proveedors_id;
-        $compra->saldo_total = 0;
-        $compra->importe_total = 0;
-        $compra->estado = 'abierto';
-        $compra->save();
-        return redirect('/compras');
+        $comprasdetalle = new Comprasdetalle;
+        $comprasdetalle->compras_id = $request->compras_id;
+        $comprasdetalle->depositos_id = $depositos_id;
+        $comprasdetalle->articulos_id = $articulos_id;
+        $comprasdetalle->cantidad = $request->cantidad;
+        $comprasdetalle->precio_costo = $request->precio_costo;
+        $comprasdetalle->save();
+        return redirect('/comprasdetalles/' . $request->compras_id);
     }
 
     /**

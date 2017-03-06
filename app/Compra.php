@@ -10,10 +10,10 @@ class Compra extends Model
     protected $table = 'compras';
 
 
-    // public function articulos()
-    //     {
-    //         return $this->hasMany('App\Articulo');
-    //     }
+    public function proveedors()
+    {
+        return $this->belongsTo('App\Proveedor');
+    }
 
 
 }

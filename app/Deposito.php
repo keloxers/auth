@@ -9,9 +9,10 @@ class Deposito extends Model
     //
     protected $table = 'depositos';
 
-    // public function provincias()
-    // {
-    //     return $this->belongsTo('App\Provincia');
-    // }
+    public function comprasdetalles()
+    {
+        return $this->hasMany('App\Comprasdetalle');
+    }
+
 
 }

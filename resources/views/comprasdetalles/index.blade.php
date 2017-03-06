@@ -8,7 +8,7 @@
 							<div class="widget-header transparent">
 								<h2><strong>{{ $title}}</h2>
 								<div class="additional-btn">
-									<a href="/compras" class="hidden reload"><i class="icon-ccw-1"></i></a>
+									<a href="/comprasdetalles" class="hidden reload"><i class="icon-ccw-1"></i></a>
 									<a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
 									<a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>
 								</div>
@@ -17,13 +17,13 @@
 								<div class="data-table-toolbar">
 									<div class="row">
 										<div class="col-md-4">
-											{{ Form::open(array('route' => 'compras.finder')) }}
+											{{ Form::open(array('route' => 'comprasdetalles.finder')) }}
 											<input type="text" id="buscar" name="buscar" class="form-control" placeholder="Buscar...">
 											{{ Form::close() }}
 										</div>
 										<div class="col-md-8">
 											<div class="toolbar-btn-action">
-												<a href="/compras/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Nueva</a>
+												<a href="/comprasdetalles/{{ $compra->id }}/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Nueva</a>
 											</div>
 										</div>
 									</div>
@@ -33,23 +33,27 @@
 									<table data-sortable class="table table-hover table-striped">
 										<thead>
 											<tr>
-												<th>Fecha</th>
-												<th>Proveedor</th>
+												<th>Cantidad</th>
+												<th>Articulo</th>
+												<th>Deposito</th>
+												<th>Precio Costo</th>
 												<th>Acción</th>
 											</tr>
 										</thead>
 
 										<tbody>
-											@if ($compras)
-											@foreach ($compras as $compra)
+											@if ($comprasdetalles)
+											@foreach ($comprasdetalles as $comprasdetalle)
 											<tr>
-												<td>{{ $compra->created_at }}</td>
-												<td>{{ $compra->proveedors->proveedor }}</td>
+												<td>{{ $comprasdetalle->cantidad }}</td>
+												<td>{{ $comprasdetalle->articulos->articulo }}</td>
+												<td>{{ $comprasdetalle->depositos->deposito }}</td>
+												<td>{{ $comprasdetalle->precio_costo }}</td>
 												<td>
-													<a href='/comprasdetalles/{{ $compra->id }}'>
-														<span class="label label-primary">Detalle</span>
+													<a href='/comprasdetalles_detalles/{{ $comprasdetalle->id }}/edit'>
+														<span class="label label-primary">Editar</span>
 													</a>
-													<a href='/compras/{{ $compra->id }}'>
+													<a href='/comprasdetalles/{{ $comprasdetalle->id }}'>
 													<span class="label label-default">Ver</span>
 													</a>
 												</td>
@@ -61,7 +65,19 @@
 								</div>
 
 								<div class="data-table-toolbar">
-									{{ $compras->links() }}
+									<div class="row">
+										<div class="col-md-4">
+										</div>
+										<div class="col-md-8">
+											<div class="toolbar-btn-action">
+												<a href="/comprasdetalles/{{ $compra->id }}/close" class="btn btn-success"><i class="icon-basket-1"></i> Cerrar</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="data-table-toolbar">
+									{{ $comprasdetalles->links() }}
 								</div>
 							</div>
 						</div>

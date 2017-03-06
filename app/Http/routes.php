@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('articuloscategorias', 'ArticuloscategoriasController');
 
     Route::post('/depositos/finder', [ 'as' => 'depositos.finder', 'uses' => 'DepositosController@finder']);
+    Route::get( '/depositos/search', array('as' => 'depositos.search', 'uses' => 'DepositosController@search'));
     Route::resource('depositos', 'DepositosController');
 
     Route::post('/proveedorescategorias/finder', [ 'as' => 'proveedorescategorias.finder', 'uses' => 'ProveedorescategoriasController@finder']);
@@ -64,6 +65,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('pedidostiposbonificacions', 'PedidostiposbonificacionsController');
 
     Route::post('/articulos/finder', [ 'as' => 'articulos.finder', 'uses' => 'ArticulosController@finder']);
+    Route::get( '/articulos/search', array('as' => 'articulos.search', 'uses' => 'ArticulosController@search'));
     Route::resource('articulos', 'ArticulosController');
 
     Route::post('/proveedors/finder', [ 'as' => 'proveedors.finder', 'uses' => 'ProveedorsController@finder']);
@@ -75,7 +77,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/compras/finder', [ 'as' => 'compras.finder', 'uses' => 'ComprasController@finder']);
     Route::resource('compras', 'ComprasController');
 
-
-
+    Route::post('/comprasdetalles/finder', [ 'as' => 'comprasdetalles.finder', 'uses' => 'ComprasdetallesController@finder']);
+    Route::get('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.index', 'uses' => 'ComprasdetallesController@index']);
+    Route::get('/comprasdetalles/{id}/create', [ 'as' => 'comprasdetalles.create', 'uses' => 'ComprasdetallesController@create']);
+    Route::post('/comprasdetalles/store', [ 'as' => 'comprasdetalles.store', 'uses' => 'ComprasdetallesController@store']);
 
 });
