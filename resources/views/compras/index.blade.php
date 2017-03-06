@@ -35,6 +35,7 @@
 											<tr>
 												<th>Fecha</th>
 												<th>Proveedor</th>
+												<th>Estado</th>
 												<th>Acción</th>
 											</tr>
 										</thead>
@@ -45,6 +46,7 @@
 											<tr>
 												<td>{{ $compra->created_at }}</td>
 												<td>{{ $compra->proveedors->proveedor }}</td>
+												<td>{{ $compra->estado }}</td>
 												<td>
 													<a href='/comprasdetalles/{{ $compra->id }}'>
 														<span class="label label-primary">Detalle</span>

@@ -76,10 +76,12 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::post('/compras/finder', [ 'as' => 'compras.finder', 'uses' => 'ComprasController@finder']);
     Route::resource('compras', 'ComprasController');
+    Route::get('/compras/{id}/close', [ 'as' => 'compras.close', 'uses' => 'ComprasController@close']);
 
     Route::post('/comprasdetalles/finder', [ 'as' => 'comprasdetalles.finder', 'uses' => 'ComprasdetallesController@finder']);
     Route::get('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.index', 'uses' => 'ComprasdetallesController@index']);
     Route::get('/comprasdetalles/{id}/create', [ 'as' => 'comprasdetalles.create', 'uses' => 'ComprasdetallesController@create']);
     Route::post('/comprasdetalles/store', [ 'as' => 'comprasdetalles.store', 'uses' => 'ComprasdetallesController@store']);
+
 
 });

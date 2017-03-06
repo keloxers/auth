@@ -50,7 +50,7 @@
 												<td>{{ $comprasdetalle->depositos->deposito }}</td>
 												<td>{{ $comprasdetalle->precio_costo }}</td>
 												<td>
-													<a href='/comprasdetalles_detalles/{{ $comprasdetalle->id }}/edit'>
+													<a href='/comprasdetalles/{{ $comprasdetalle->id }}/edit'>
 														<span class="label label-primary">Editar</span>
 													</a>
 													<a href='/comprasdetalles/{{ $comprasdetalle->id }}'>
@@ -70,7 +70,7 @@
 										</div>
 										<div class="col-md-8">
 											<div class="toolbar-btn-action">
-												<a href="/comprasdetalles/{{ $compra->id }}/close" class="btn btn-success"><i class="icon-basket-1"></i> Cerrar</a>
+												<a href="/compras/{{ $compra->id }}/close" class="btn btn-success"><i class="icon-basket-1"></i> Cerrar</a>
 											</div>
 										</div>
 									</div>

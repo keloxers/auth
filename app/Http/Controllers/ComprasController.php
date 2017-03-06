@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use App\Http\Requests;
 use App\Compra;
+use App\Articulo;
+use App\Comprasdetalle;
+use App\Stock;
 use DB;
 
 use Validator;
@@ -181,6 +184,60 @@ class ComprasController extends Controller
           return json_encode($adevol);
      }
 
+
+     public function close($id)
+     {
+
+
+         $compra = Compra::find($id);
+         $comprasdetalles = Comprasdetalle::where('compras_id',$compra->id)->get();
+
+         $precio_costo = 0;
+
+         if (count($comprasdetalles) > 0)
+          {
+             foreach ($comprasdetalles as $comprasdetalle)
+             {
+                $articulo = Articulo::find($comprasdetalle->articulos_id);
+                $articulo->precio_costo = $comprasdetalle->precio_costo;
+                $articulo->save();
+
+                /* aca actualiza el stock buscando por deposito y articulo :) */
+
+                $stock = Stock::where('depositos_id',$comprasdetalle->depositos_id)->
+                            where('articulos_id',$comprasdetalle->articulos_id)->
+                            first();
+
+                if ($stock) {
+                  echo "encontre";
+                  die;
+                } else {
+                  $stock = new Stock;
+                  $stock->depositos_id = $comprasdetalle->depositos_id;
+                  $stock->articulos_id = $comprasdetalle->articulos_id;
+                  $stock->stock = $comprasdetalle->cantidad;
+                  $stock->stock_minimo = 0;
+                  $stock->stock_maximo = 0;
+                  $stock->save();
+
+                }
+
+                $precio_costo += $comprasdetalle->precio_costo;
+             }
+           }
+
+         $compra->saldo_total = $precio_costo;
+         $compra->importe_total = $precio_costo;
+         $compra->estado = 'cerrada';
+         $compra->save();
+
+         $compras = Compra::paginate(15);
+         $title = "Compras";
+         return view('compras.index', ['compras' => $compras, 'title' => $title ]);
+
+
+
+     }
 
 
 }
