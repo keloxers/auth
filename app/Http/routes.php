@@ -32,6 +32,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get( '/barrios/search', array('as' => 'barrios.search', 'uses' => 'BarriosController@search'));
     Route::resource('barrios', 'BarriosController');
 
+    Route::post('/clientes/finder', [ 'as' => 'clientes.finder', 'uses' => 'ClientesController@finder']);
+    Route::get( '/clientes/search', array('as' => 'clientes.search', 'uses' => 'ClientesController@search'));
+    Route::resource('clientes', 'ClientesController');
 
     Route::post('/zonas/finder', [ 'as' => 'zonas.finder', 'uses' => 'ZonasController@finder']);
     Route::resource('zonas', 'ZonasController');
