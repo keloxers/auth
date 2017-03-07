@@ -175,15 +175,37 @@ class CiudadsController extends Controller
      */
     public function finder(Request $request)
     {
-        //
-
         $ciudads = Ciudad::where('ciudad', 'like', '%'. $request->buscar . '%')->orderby('ciudad')->paginate(15);
         $title = "Ciudad: buscando " . $request->buscar;
         return view('ciudads.index', ['ciudads' => $ciudads, 'title' => $title ]);
-
-
-
     }
+
+
+
+
+        public function search(Request $request){
+             $term = $request->term;
+             $datos = Ciudad::where('ciudad', 'like', '%'. $request->term . '%')->get();
+             $adevol = array();
+             if (count($datos) > 0) {
+                 foreach ($datos as $dato)
+                     {
+                         $adevol[] = array(
+                             'id' => $dato->id,
+                             'value' => $dato->ciudad,
+                         );
+                 }
+             } else {
+                         $adevol[] = array(
+                             'id' => 0,
+                             'value' => 'no hay coincidencias para ' .  $term
+                         );
+             }
+              return json_encode($adevol);
+         }
+
+
+
 
 
 

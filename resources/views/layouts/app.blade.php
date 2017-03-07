@@ -171,6 +171,7 @@
                                     <li><a href='/articulos'><span>Articulos</span></a></li>
                                     <li><a href='/articuloscategorias'><span>Articulos Categorias</span></a></li>
                                     <!-- <li><a href='/chofers'><span>Choferes</span></a></li> -->
+                                    <li><a href='/barrios'><span>Barrios</span></a></li>
                                     <li><a href='/ciudads'><span>Ciudades</span></a></li>
                                     <li><a href='/clientes'><span>Clientes</span></a></li>
                                     <li><a href='/condicionesventas'><span>Condiciones Ventas</span></a></li>

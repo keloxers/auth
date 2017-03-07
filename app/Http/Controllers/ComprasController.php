@@ -209,8 +209,8 @@ class ComprasController extends Controller
                             first();
 
                 if ($stock) {
-                  echo "encontre";
-                  die;
+                  $stock->stock = $stock->stock + $comprasdetalle->cantidad;
+                  $stock->save();
                 } else {
                   $stock = new Stock;
                   $stock->depositos_id = $comprasdetalle->depositos_id;

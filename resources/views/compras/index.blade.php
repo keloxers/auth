@@ -51,9 +51,6 @@
 													<a href='/comprasdetalles/{{ $compra->id }}'>
 														<span class="label label-primary">Detalle</span>
 													</a>
-													<a href='/compras/{{ $compra->id }}'>
-													<span class="label label-default">Ver</span>
-													</a>
 												</td>
 											</tr>
 											@endforeach

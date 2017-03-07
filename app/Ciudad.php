@@ -14,4 +14,10 @@ class Ciudad extends Model
         return $this->belongsTo('App\Provincia');
     }
 
+    public function barrios()
+        {
+            return $this->hasMany('App\Barrio');
+        }
+
+
 }
