@@ -17,16 +17,42 @@
 							<div class="widget-content">
 
 								<div class="widget-content padding">
-									{{ Form::open(array('url' => '/articuloscategorias/' . $articuloscategoria->id, 'class' => 'panel-body wrapper-lg')) }}
+									{{ Form::open(array('url' => '/comprasdetalles/' . $comprasdetalle->id, 'class' => 'form-horizontal')) }}
 									{{ Form::hidden('_method', 'DELETE') }}
 
 
+
+									{{ Form::hidden('compras_id', $compra->id, array('id' => 'compras_id', 'name' => 'compras_id')) }}
+
 										<div class="form-group">
-												<label for="input-text" class="col-sm-2 control-label">articuloscategoria</label>
+											<label for="input-text" class="col-sm-2 control-label">Deposito</label>
 												<div class="col-sm-10">
-													 {{ $articuloscategoria->articuloscategoria }}
+													{{ $deposito->deposito }}
 												</div>
-											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="input-text" class="col-sm-2 control-label">Cantidad</label>
+												<div class="col-sm-3">
+													{{ $comprasdetalle->cantidad }}
+												</div>
+										</div>
+
+										<div class="form-group">
+											<label for="input-text" class="col-sm-2 control-label">Articulo</label>
+												<div class="col-sm-10">
+													{{ $articulo->articulo }}
+												</div>
+										</div>
+
+										<div class="form-group">
+											<label for="input-text" class="col-sm-2 control-label">Precio de Costo</label>
+												<div class="col-sm-3">
+													{{ $comprasdetalle->precio_costo }}
+												</div>
+										</div>
+
+
 
 
 										</div>
@@ -43,9 +69,6 @@
 							</div>
 						</div>
 					</div>
-
-
-
 
 
 @stop

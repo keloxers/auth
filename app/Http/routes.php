@@ -82,6 +82,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.index', 'uses' => 'ComprasdetallesController@index']);
     Route::get('/comprasdetalles/{id}/create', [ 'as' => 'comprasdetalles.create', 'uses' => 'ComprasdetallesController@create']);
     Route::post('/comprasdetalles/store', [ 'as' => 'comprasdetalles.store', 'uses' => 'ComprasdetallesController@store']);
+    Route::get('/comprasdetalles/{id}/edit', [ 'as' => 'comprasdetalles.edit', 'uses' => 'ComprasdetallesController@edit']);
+    Route::put('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.update', 'uses' => 'ComprasdetallesController@update']);
+    Route::get('/comprasdetalles/{id}/show', [ 'as' => 'comprasdetalles.show', 'uses' => 'ComprasdetallesController@show']);
+    Route::delete('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.destroy', 'uses' => 'ComprasdetallesController@destroy']);
 
 
 });

@@ -7,6 +7,8 @@ use Illuminate\Support\MessageBag;
 use App\Http\Requests;
 use App\Compra;
 use App\Comprasdetalle;
+use App\Deposito;
+use App\Articulo;
 use DB;
 
 use Validator;
@@ -91,10 +93,21 @@ class ComprasdetallesController extends Controller
      */
     public function show($id)
     {
-      $articuloscategoria = Articuloscategoria::find($id);
-      $title = "Articulos Categorias";
-      return view('articuloscategorias.show', ['articuloscategoria' => $articuloscategoria,'title' => $title]);
-        //
+
+      $comprasdetalle = Comprasdetalle::find($id);
+      $compra = Compra::find($comprasdetalle->compras_id);
+      $deposito = Deposito::find($comprasdetalle->depositos_id);
+      $articulo = Articulo::find($comprasdetalle->articulos_id);
+
+      $title = "Compras detalle";
+      return view('comprasdetalles.show', ['comprasdetalle' => $comprasdetalle,
+                                            'compra' => $compra,
+                                            'deposito' => $deposito,
+                                            'articulo' => $articulo,
+                                            'title' => $title]);
+
+
+
     }
 
     /**
@@ -105,10 +118,17 @@ class ComprasdetallesController extends Controller
      */
     public function edit($id)
     {
-        //
-        $articuloscategoria = Articuloscategoria::find($id);
-        $title = "Editar articuloscategoria";
-        return view('articuloscategorias.edit', ['articuloscategoria' => $articuloscategoria,'title' => $title]);
+        $comprasdetalle = Comprasdetalle::find($id);
+        $compra = Compra::find($comprasdetalle->compras_id);
+        $deposito = Deposito::find($comprasdetalle->depositos_id);
+        $articulo = Articulo::find($comprasdetalle->articulos_id);
+
+        $title = "Editar Compras detalle";
+        return view('comprasdetalles.edit', ['comprasdetalle' => $comprasdetalle,
+                                              'compra' => $compra,
+                                              'deposito' => $deposito,
+                                              'articulo' => $articulo,
+                                              'title' => $title]);
 
 
     }
@@ -122,11 +142,41 @@ class ComprasdetallesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $articuloscategorias = Articuloscategoria::find($id);
-        $articuloscategorias->articuloscategoria = $request->articuloscategoria;
-        $articuloscategorias->save();
-        return redirect('/articuloscategorias');
+
+          $validator = Validator::make($request->all(), [
+                      'deposito' => 'required|exists:depositos,deposito',
+                      'articulo' => 'required|exists:articulos,articulo',
+
+          ]);
+
+
+          if ($validator->fails()) {
+            foreach($validator->messages()->getMessages() as $field_name => $messages) {
+              foreach($messages AS $message) {
+                  $errors[] = $message;
+              }
+            }
+            return redirect()->back()->with('errors', $errors)->withInput();
+            die;
+          }
+
+          $depositos_id = DB::table('depositos')->where('deposito', $request->deposito)->value('id');
+          $articulos_id = DB::table('articulos')->where('articulo', $request->articulo)->value('id');
+
+          $comprasdetalle = Comprasdetalle::find($id);
+          // $comprasdetalle->compras_id = $request->compras_id;
+          $comprasdetalle->depositos_id = $depositos_id;
+          $comprasdetalle->articulos_id = $articulos_id;
+          $comprasdetalle->cantidad = $request->cantidad;
+          $comprasdetalle->precio_costo = $request->precio_costo;
+          $comprasdetalle->save();
+          return redirect('/comprasdetalles/' . $request->compras_id);
+
+
+
+
+
+
     }
 
     /**
@@ -138,10 +188,11 @@ class ComprasdetallesController extends Controller
     public function destroy($id)
     {
         //
-        $articuloscategorias = Articuloscategoria::find($id);
-        $articuloscategorias->delete();
+        $comprasdetalle = Comprasdetalle::find($id);
+        $compras_id = $comprasdetalle->compras_id;
+        $comprasdetalle->delete();
 
-        return redirect('/articuloscategorias');
+        return redirect('/comprasdetalles/' . $compras_id);
     }
 
     /**

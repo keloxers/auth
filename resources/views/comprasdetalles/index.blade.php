@@ -53,7 +53,7 @@
 													<a href='/comprasdetalles/{{ $comprasdetalle->id }}/edit'>
 														<span class="label label-primary">Editar</span>
 													</a>
-													<a href='/comprasdetalles/{{ $comprasdetalle->id }}'>
+													<a href='/comprasdetalles/{{ $comprasdetalle->id }}/show'>
 													<span class="label label-default">Ver</span>
 													</a>
 												</td>
