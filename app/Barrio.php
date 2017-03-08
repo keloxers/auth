@@ -15,5 +15,10 @@ class Barrio extends Model
         return $this->belongsTo('App\Ciudad');
     }
 
+    public function clientes()
+        {
+            return $this->hasMany('App\Cliente');
+        }
+
 
 }

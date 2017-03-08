@@ -14,20 +14,52 @@
 							</div>
 							<div class="widget-content">
 								<div class="widget-content padding">
-									{{ Form::open(array('url' => '/barrios/' . $barrio->id, 'class' => 'form-horizontal')) }}
+									{{ Form::open(array('url' => '/clientes/' . $cliente->id, 'class' => 'form-horizontal')) }}
 									{{ Form::hidden('_method', 'DELETE') }}
-										<div class="form-group">
-												<label for="input-text" class="col-sm-2 control-label">Barrio</label>
-												<div class="col-sm-10">
-													 {{ $barrio->barrio }}
-												</div>
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Cliente</label>
+											<div class="col-sm-10">
+												{{ $cliente->cliente }}
+											</div>
+									</div>
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Barrio</label>
+											<div class="col-sm-10">
+												{{ $cliente->barrio->barrio }}
+											</div>
+									</div>
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Direccion</label>
+											<div class="col-sm-10">
+												{{ $cliente->direccion }}
+											</div>
+									</div>
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Telefono</label>
+											<div class="col-sm-10">
+												{{ $cliente->telefono }}
+											</div>
+									</div>
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Email</label>
+											<div class="col-sm-10">
+												{{ $cliente->email }}
+											</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Observaciones</label>
+										<div class="col-sm-10">
+											{{$cliente->observaciones}}
 										</div>
-										<div class="form-group">
-												<label for="input-text" class="col-sm-2 control-label">Ciudad</label>
-												<div class="col-sm-10">
-													 {{ $barrio->ciudads->ciudad }}
-												</div>
-										</div>
+									</div>
+
+
 										</div>
 										<div class="widget-content padding">
 											<div class="form-group">

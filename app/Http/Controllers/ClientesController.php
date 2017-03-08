@@ -67,6 +67,10 @@ class ClientesController extends Controller
         $cliente = new Cliente;
         $cliente->cliente = $request->cliente;
         $cliente->barrios_id = $barrio->id;
+        $cliente->direccion = $request->direccion;
+        $cliente->telefono = $request->telefono;
+        $cliente->email = $request->email;
+        $cliente->observaciones = $request->observaciones;
         $cliente->save();
         return redirect('/clientes');
     }
@@ -79,9 +83,9 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-      $Cliente = Cliente::find($id);
-      $title = "Clientes";
-      return view('Clientes.show', ['Cliente' => $Cliente,'title' => $title]);
+      $cliente = Cliente::find($id);
+      $title = "Cliente";
+      return view('clientes.show', ['cliente' => $cliente,'title' => $title]);
 
     }
 
@@ -94,13 +98,13 @@ class ClientesController extends Controller
     public function edit($id)
     {
         //
-        $Cliente = Cliente::find($id);
-        $ciudad = Ciudad::find($Cliente->ciudads_id);
+        $cliente = Cliente::find($id);
+        $barrio = Barrio::find($cliente->barrios_id);
 
         $title = "Editar Cliente";
-        return view('Clientes.edit', [
-            'Cliente' => $Cliente,
-            'ciudad' => $ciudad,
+        return view('clientes.edit', [
+            'cliente' => $cliente,
+            'barrio' => $barrio,
             'title' => $title
           ]);
 
@@ -117,8 +121,8 @@ class ClientesController extends Controller
     {
 
       $validator = Validator::make($request->all(), [
-                  'Cliente' => 'required|unique:Clientes,id,'. $request->id . '|max:75',
-                  'ciudad' => 'required|exists:ciudads,ciudad'
+                  'cliente' => 'required|unique:Clientes,id,'. $request->id . '|max:75',
+                  'barrio' => 'required|exists:barrios,barrio'
 
       ]);
 
@@ -134,15 +138,19 @@ class ClientesController extends Controller
       }
 
 
-        $ciudad = Ciudad::where('ciudad', $request->ciudad)->first();
+        $barrio = Barrio::where('barrio', $request->barrio)->first();
 
 
         //
-        $Cliente = Cliente::find($id);
-        $Cliente->Cliente = $request->Cliente;
-        $Cliente->ciudads_id = $ciudad->id;
-        $Cliente->save();
-        return redirect('/Clientes');
+        $cliente = Cliente::find($id);
+        $cliente->cliente = $request->cliente;
+        $cliente->barrios_id = $barrio->id;
+        $cliente->direccion = $request->direccion;
+        $cliente->telefono = $request->telefono;
+        $cliente->email = $request->email;
+        $cliente->observaciones = $request->observaciones;
+        $cliente->save();
+        return redirect('/clientes');
     }
 
     /**
@@ -154,10 +162,10 @@ class ClientesController extends Controller
     public function destroy($id)
     {
         //
-        $Clientes = Cliente::find($id);
-        $Clientes->delete();
+        $clientes = Cliente::find($id);
+        $clientes->delete();
 
-        return redirect('/Clientes');
+        return redirect('/clientes');
     }
 
     /**
@@ -170,9 +178,9 @@ class ClientesController extends Controller
     {
         //
 
-        $Clientes = Cliente::where('Cliente', 'like', '%'. $request->buscar . '%')->orderby('Cliente')->paginate(15);
+        $clientes = Cliente::where('cliente', 'like', '%'. $request->buscar . '%')->orderby('cliente')->paginate(15);
         $title = "Cliente: buscando " . $request->buscar;
-        return view('Clientes.index', ['Clientes' => $Clientes, 'title' => $title ]);
+        return view('clientes.index', ['clientes' => $clientes, 'title' => $title ]);
 
 
     }

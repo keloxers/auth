@@ -29,20 +29,55 @@
 
 							<div class="widget-content">
 								<div class="widget-content padding">
-									{{ Form::open(array('url' => URL::to('barrios/' . $barrio->id), 'method' => 'PUT', 'class' => 'form-horizontal')) }}
-										<div class="form-group">
-												<label for="input-text" class="col-sm-2 control-label">Barrio</label>
-												<div class="col-sm-10">
-													{{ Form::text('barrio', $barrio->barrio, array('class' => 'form-control input-lg', 'placeholder' => 'Ingrese una barrio')) }}
-												</div>
+									{{ Form::open(array('url' => URL::to('clientes/' . $cliente->id), 'method' => 'PUT', 'class' => 'form-horizontal')) }}
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Cliente</label>
+											<div class="col-sm-10">
+												{{ Form::text('cliente', $cliente->cliente, array('id' => 'cliente', 'name' => 'cliente', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una cliente')) }}
 											</div>
-											<div class="form-group">
-												<label for="input-text" class="col-sm-2 control-label">Ciudad</label>
-													<div class="col-sm-10">
-														{{ Form::text('ciudad', $ciudad->ciudad, array('id' =>'ciudad', 'name' =>'ciudad', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una ciudad')) }}
-														{{ Form::hidden('ciudads_id', $ciudad->id, array('id' => 'ciudads_id', 'name' => 'ciudads_id')) }}
-													</div>
+									</div>
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Barrio</label>
+											<div class="col-sm-10">
+												{{ Form::text('barrio', $barrio->barrio, array('id' =>'barrio', 'name' =>'barrio', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese un barrio')) }}
+												{{ Form::hidden('barrios_id', $barrio->id, array('id' => 'barrios_id', 'name' => 'barrios_id')) }}
 											</div>
+									</div>
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Direccion</label>
+											<div class="col-sm-10">
+												{{ Form::text('direccion', $cliente->direccion, array('id' => 'direccion', 'name' => 'direccion', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una direcion')) }}
+											</div>
+									</div>
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Telefono</label>
+											<div class="col-sm-10">
+												{{ Form::text('telefono', $cliente->telefono, array('id' => 'telefono', 'name' => 'telefono', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese un telefono de contacto')) }}
+											</div>
+									</div>
+
+									<div class="form-group">
+										<label for="input-text" class="col-sm-2 control-label">Email</label>
+											<div class="col-sm-10">
+												{{ Form::text('email', $cliente->email, array('id' => 'email', 'name' => 'email', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese un email de contacto')) }}
+											</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Observaciones</label>
+										<div class="col-sm-10">
+											<textarea class="summernote" id="observaciones" name="observaciones">{{$cliente->observaciones}}</textarea>
+										</div>
+									</div>
+
+
+
+
+
 										</div>
 										<div class="widget-content padding">
 											<div class="form-group">
@@ -60,10 +95,10 @@
 					<script>
 						var jq = jQuery.noConflict();
 						jq(document).ready( function(){
-							$("#ciudad").autocomplete({
-									source: "/ciudads/search",
+							$("#barrio").autocomplete({
+									source: "/barrios/search",
 									select: function( event, ui ) {
-										$('#ciudads_id').val( ui.item.id );
+										$('#barrios_id').val( ui.item.id );
 									}
 								});
 							});

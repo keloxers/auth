@@ -61,6 +61,13 @@
 										</div>
 
 										<div class="form-group">
+											<label for="input-text" class="col-sm-2 control-label">Email</label>
+												<div class="col-sm-10">
+													{{ Form::text('email', '', array('id' => 'email', 'name' => 'email', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese un email de contacto')) }}
+												</div>
+										</div>
+
+										<div class="form-group">
 											<label class="col-sm-2 control-label">Observaciones</label>
 											<div class="col-sm-10">
 											  <textarea class="summernote" id="observaciones" name="observaciones"></textarea>

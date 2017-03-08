@@ -35,6 +35,8 @@
 											<tr>
 												<th>Cliente</th>
 												<th>Barrio</th>
+												<th>Telefono</th>
+												<th>Email</th>
 												<th>Acción</th>
 											</tr>
 										</thead>
@@ -44,7 +46,9 @@
 											@foreach ($clientes as $cliente)
 											<tr>
 												<td>{{ $cliente->cliente }}</td>
-												<td>{{ $cliente->barrios_id }}</td>
+												<td>{{ $cliente->barrios->barrio }}</td>
+												<td>{{ $cliente->telefono }}</td>
+												<td>{{ $cliente->email }}</td>
 												<td>
 													<a href='/clientes/{{ $cliente->id }}/edit'>
 														<span class="label label-primary">Editar</span>

@@ -9,10 +9,10 @@ class Cliente extends Model
 
     protected $table = 'clientes';
 
-    // public function ciudads()
-    // {
-    //     return $this->belongsTo('App\Ciudad');
-    // }
+    public function barrios()
+    {
+        return $this->belongsTo('App\Barrio');
+    }
 
 
 }
