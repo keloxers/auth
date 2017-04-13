@@ -41,7 +41,7 @@
 										<div class="form-group">
 											<label for="input-text" class="col-sm-2 control-label">Cantidad</label>
 												<div class="col-sm-3">
-													{{ Form::text('cantidad', '', array('id' =>'cantidad', 'name' =>'cantidad', 'class' => 'form-control input-lg', 'placeholder' => '1')) }}
+													{{ Form::text('cantidad', '1', array('id' =>'cantidad', 'name' =>'cantidad', 'class' => 'form-control input-lg', 'placeholder' => '1')) }}
 												</div>
 										</div>
 

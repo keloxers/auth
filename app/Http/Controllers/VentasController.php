@@ -31,7 +31,7 @@ class VentasController extends Controller
     public function index()
     {
         //
-        $ventas = Venta::paginate(15);
+        $ventas = Venta::orderby('id','desc')->paginate(15);
         $title = "Ventas";
         return view('ventas.index', ['ventas' => $ventas, 'title' => $title ]);
     }
@@ -81,7 +81,9 @@ class VentasController extends Controller
         $depositos_id = DB::table('depositos')->where('deposito', $request->deposito)->value('id');
         $condicionesventas_id = DB::table('condicionesventas')->where('condicionesventa', $request->condicionesventa)->value('id');
 
+
         $venta = new Venta;
+        $venta->fecha = Carbon::now();
         $venta->clientes_id = $clientes_id;
         $venta->depositos_id = $depositos_id;
         $venta->condicionesventas_id = $condicionesventas_id;
