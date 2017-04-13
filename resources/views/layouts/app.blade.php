@@ -194,6 +194,12 @@
                                 <span class="pull-right">
                                 </a>
                             </li>
+                            <li><a href='/ventas'>
+                              <i class='fa fa-money'></i>
+                                <span>Ventas</span>
+                                <span class="pull-right">
+                                </a>
+                            </li>
 
                             <div class="clearfix"></div>
                             </ul>

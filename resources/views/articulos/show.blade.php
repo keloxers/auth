@@ -30,6 +30,13 @@
 
 
 						<div class="form-group">
+							<label for="input-text" class="col-sm-2 control-label">Codigo Barra</label>
+							<div class="col-sm-10">
+								{{ $articulo->codigobarra }}
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label for="input-text" class="col-sm-2 control-label">Descripcion</label>
 							<div class="col-sm-10">
 								{{ $articulo->descripcion }}

@@ -195,7 +195,7 @@ class ClientesController extends Controller
                  {
                      $adevol[] = array(
                          'id' => $dato->id,
-                         'value' => $dato->Cliente,
+                         'value' => $dato->cliente,
                      );
              }
          } else {

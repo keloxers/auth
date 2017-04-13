@@ -42,6 +42,14 @@
 											</div>
 
 											<div class="form-group">
+												<label for="input-text" class="col-sm-2 control-label">Codigo Barra</label>
+													<div class="col-sm-10">
+														{{ Form::text('codigobarra', $articulo->codigobarra, array('id' => 'codigobarra', 'name' => 'codigobarra', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese codigobarra')) }}
+													</div>
+												</div>
+
+
+											<div class="form-group">
 												<label for="input-text" class="col-sm-2 control-label">Descripcion</label>
 													<div class="col-sm-10">
 														{{ Form::text('descripcion', $articulo->descripcion, array('id' => 'descripcion', 'name' => 'descripcion', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese una descripcion')) }}

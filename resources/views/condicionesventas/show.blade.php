@@ -27,6 +27,24 @@
 													 {{ $condicionesventa->condicionesventa }}
 												</div>
 											</div>
+											<div class="form-group">
+												<label for="input-text" class="col-sm-2 control-label">Porcentaje Entrega</label>
+												<div class="col-sm-4">
+													{{ $condicionesventa->porcentaje_entrega }}
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="input-text" class="col-sm-2 control-label">Cuotas</label>
+												<div class="col-sm-4">
+													{{ $condicionesventa->cuotas }}
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="input-text" class="col-sm-2 control-label">Interes sobre el saldo</label>
+												<div class="col-sm-4">
+													{{ $condicionesventa->interes }}
+												</div>
+											</div>
 
 
 										</div>

@@ -14,5 +14,9 @@ class Cliente extends Model
         return $this->belongsTo('App\Barrio');
     }
 
-
+    public function compras()
+        {
+            return $this->hasMany('App\Compra');
+        }
+        
 }

@@ -10,10 +10,10 @@ class Condicionesventa extends Model
     protected $table = 'condicionesventas';
 
 
-    // public function ciudads()
-    //     {
-    //         return $this->hasMany('App\Ciudad');
-    //     }
+    public function ventas()
+        {
+            return $this->hasMany('App\Venta');
+        }
 
 
 }

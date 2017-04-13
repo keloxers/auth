@@ -69,6 +69,9 @@ class CondicionesventasController extends Controller
 
         $condicionesventas = new Condicionesventa;
         $condicionesventas->condicionesventa = $request->condicionesventa;
+        $condicionesventas->porcentaje_entrega = $request->porcentaje_entrega;
+        $condicionesventas->cuotas = $request->cuotas;
+        $condicionesventas->interes = $request->interes;
         $condicionesventas->save();
         return redirect('/condicionesventas');
     }
@@ -134,6 +137,9 @@ class CondicionesventasController extends Controller
 
         $condicionesventas = Condicionesventa::find($id);
         $condicionesventas->condicionesventa = $request->condicionesventa;
+        $condicionesventas->porcentaje_entrega = $request->porcentaje_entrega;
+        $condicionesventas->cuotas = $request->cuotas;
+        $condicionesventas->interes = $request->interes;        
         $condicionesventas->save();
         return redirect('/condicionesventas');
     }

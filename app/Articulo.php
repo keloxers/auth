@@ -20,4 +20,10 @@ class Articulo extends Model
         return $this->hasMany('App\Comprasdetalle');
     }
 
+    public function ventasdetalle()
+    {
+        return $this->hasMany('App\Ventasdetalle');
+    }
+
+
 }

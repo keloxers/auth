@@ -37,6 +37,24 @@
 													 => 'Ingrese una condicionesventa')) }}
 												</div>
 											</div>
+											<div class="form-group">
+												<label for="input-text" class="col-sm-2 control-label">Porcentaje Entrega</label>
+												<div class="col-sm-4">
+													{{ Form::text('porcentaje_entrega', $condicionesventa->porcentaje_entrega, array('id' => 'porcentaje_entrega', 'name' => 'porcentaje_entrega', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese porcentaje entrega')) }}
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="input-text" class="col-sm-2 control-label">Cuotas</label>
+												<div class="col-sm-4">
+													{{ Form::text('cuotas', $condicionesventa->cuotas, array('id' => 'cuotas', 'name' => 'cuotas', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese cantidad de cuotas')) }}
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="input-text" class="col-sm-2 control-label">Interes sobre el saldo</label>
+												<div class="col-sm-4">
+													{{ Form::text('interes', $condicionesventa->interes, array('id' => 'interes', 'name' => 'interes', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese interes a aplicar sobre el saldo')) }}
+												</div>
+											</div>
 
 
 										</div>

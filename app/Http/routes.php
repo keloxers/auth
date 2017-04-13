@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('zonas', 'ZonasController');
 
     Route::post('/condicionesventas/finder', [ 'as' => 'condicionesventas.finder', 'uses' => 'CondicionesventasController@finder']);
+    Route::get( '/condicionesventas/search', array('as' => 'condicionesventas.search', 'uses' => 'CondicionesventasController@search'));
     Route::resource('condicionesventas', 'CondicionesventasController');
 
 
@@ -95,5 +96,19 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/comprasdetalles/{id}/show', [ 'as' => 'comprasdetalles.show', 'uses' => 'ComprasdetallesController@show']);
     Route::delete('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.destroy', 'uses' => 'ComprasdetallesController@destroy']);
 
+    Route::post('/ventas/finder', [ 'as' => 'ventas.finder', 'uses' => 'VentasController@finder']);
+    Route::resource('ventas', 'VentasController');
+
+
+    Route::post('/ventasdetalles/finder', [ 'as' => 'ventasdetalles.finder', 'uses' => 'VentasdetallesController@finder']);
+    Route::get('/ventasdetalles/{id}', [ 'as' => 'ventasdetalles.index', 'uses' => 'VentasdetallesController@index']);
+    Route::get('/ventasdetalles/{id}/create', [ 'as' => 'ventasdetalles.create', 'uses' => 'VentasdetallesController@create']);
+    Route::post('/ventasdetalles/store', [ 'as' => 'ventasdetalles.store', 'uses' => 'VentasdetallesController@store']);
+    Route::get('/ventasdetalles/{id}/edit', [ 'as' => 'ventasdetalles.edit', 'uses' => 'VentasdetallesController@edit']);
+    Route::put('/ventasdetalles/{id}', [ 'as' => 'ventasdetalles.update', 'uses' => 'VentasdetallesController@update']);
+    Route::get('/ventasdetalles/{id}/show', [ 'as' => 'ventasdetalles.show', 'uses' => 'VentasdetallesController@show']);
+    Route::delete('/ventasdetalles/{id}', [ 'as' => 'ventasdetalles.destroy', 'uses' => 'VentasdetallesController@destroy']);
+    Route::post('/ventasdetalles/calcular', [ 'as' => 'ventasdetalles.calcular', 'uses' => 'VentasdetallesController@calcular']);
+    Route::get('/ventas/{id}/close', [ 'as' => 'ventas.close', 'uses' => 'VentasController@close']);
 
 });
