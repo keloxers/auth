@@ -120,12 +120,8 @@ class ClientesController extends Controller
     public function update(Request $request, $id)
     {
 
-      echo $id;
-      die;
-      
-
       $validator = Validator::make($request->all(), [
-                  'cliente' => 'required|unique:Clientes,id,'. $request->id . '|max:75',
+                  'cliente' => 'required|unique:Clientes,id,'. $id . '|max:75',
                   'barrio' => 'required|exists:barrios,barrio'
 
       ]);
