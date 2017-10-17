@@ -105,6 +105,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/ventasdetalles/{id}/create', [ 'as' => 'ventasdetalles.create', 'uses' => 'VentasdetallesController@create']);
     Route::post('/ventasdetalles/store', [ 'as' => 'ventasdetalles.store', 'uses' => 'VentasdetallesController@store']);
     Route::get('/ventasdetalles/{id}/edit', [ 'as' => 'ventasdetalles.edit', 'uses' => 'VentasdetallesController@edit']);
+    Route::get('/ventasdetalles/{id}/delete', [ 'as' => 'ventasdetalles.destroy', 'uses' => 'VentasdetallesController@destroy']);
     Route::put('/ventasdetalles/{id}', [ 'as' => 'ventasdetalles.update', 'uses' => 'VentasdetallesController@update']);
     Route::get('/ventasdetalles/{id}/show', [ 'as' => 'ventasdetalles.show', 'uses' => 'VentasdetallesController@show']);
     Route::delete('/ventasdetalles/{id}', [ 'as' => 'ventasdetalles.destroy', 'uses' => 'VentasdetallesController@destroy']);

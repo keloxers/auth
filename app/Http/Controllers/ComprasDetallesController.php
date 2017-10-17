@@ -25,8 +25,10 @@ class ComprasdetallesController extends Controller
     public function index($id)
     {
         $compra = Compra::find($id);
-        $comprasdetalles = Comprasdetalle::paginate(15);
+
+        $comprasdetalles = Comprasdetalle::where('compras_id', $compra->id)->paginate(15);
         $title = "Compras Detalles";
+
         return view('comprasdetalles.index', ['comprasdetalles' => $comprasdetalles, 'compra' => $compra, 'title' => $title ]);
     }
 

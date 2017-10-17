@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
 
 <div class="row">
 					<div class="col-md-12">
@@ -14,25 +19,38 @@
 								</div>
 							</div>
 
-							<div class="widget-content">
-								<div class="data-table-toolbar">
-									<div class="row">
-										<div class="col-md-4">
-											{{ Form::open(array('route' => 'ventasdetalles.finder')) }}
-											<input type="text" id="buscar" name="buscar" class="form-control" placeholder="Buscar...">
-											{{ Form::close() }}
-										</div>
-										<div class="col-md-8">
-											@if ($venta->estado=='abierta')
-											<div class="toolbar-btn-action">
-												<a href="/ventasdetalles/{{ $venta->id }}/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Nueva</a>
-											</div>
-											@endif
-										</div>
-									</div>
-								</div>
+
 
 								<?php $total = 0; ?>
+
+
+															<div class="widget-content">
+
+																<div class="widget-content padding">
+																	{{ Form::open(array('route' => 'ventasdetalles.store', 'class' => 'form-horizontal', 'role' => 'form',  'autocomplete' => 'off')) }}
+
+																	{{ Form::hidden('ventas_id', $venta->id, array('id' => 'ventas_id', 'name' => 'ventas_id')) }}
+
+
+																		<div class="form-group">
+																			<div class="col-sm-2">
+																				Cantidad:
+																				{{ Form::text('cantidad', '1', array('id' =>'cantidad', 'name' =>'cantidad', 'class' => 'form-control input-lg', 'placeholder' => '1')) }}
+																			</div>
+																				<div class="col-sm-8">
+																					Articulo{{ Form::text('articulo', '', array('id' =>'articulo', 'name' =>'articulo', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese un articulo')) }}
+																					{{ Form::hidden('articulos_id', '', array('id' => 'articulos_id', 'name' => 'articulos_id')) }}
+																				</div>
+																				<div class="col-sm-2">
+																					{{ Form::submit('Agregar', array('class' => 'btn btn-primary')) }}
+																				</div>
+
+																		</div>
+
+																		</div>
+
+																		{{ Form::close() }}
+																</div>
 
 
 								<div class="table-responsive">
@@ -62,9 +80,6 @@
 												 ?>
 												<td>
 													@if ($venta->estado=='abierta')
-													<a href='/ventasdetalles/{{ $ventasdetalle->id }}/edit'>
-														<span class="label label-primary">Editar</span>
-													</a>
 													<a href='/ventasdetalles/{{ $ventasdetalle->id }}/delete'>
 														<span class="label label-danger">Eliminar</span>
 													</a>
@@ -167,6 +182,19 @@
 
 
 
+				<script>
+					var jq = jQuery.noConflict();
+						jq(document).ready( function(){
+							$("#articulo").autocomplete({
+									source: "/articulos/search",
+									select: function( event, ui ) {
+										$('#articulos_id').val( ui.item.id );
+
+									}
+								});
+							});
+
+				</script>
 
 
 

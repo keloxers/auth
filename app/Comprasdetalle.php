@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comprasdetalle extends Model
 {
     //
-    protected $table = 'comprasdetalles';
+    protected $table = 'compras_detalles';
 
     public function articulos()
         {

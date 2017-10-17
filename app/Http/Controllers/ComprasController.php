@@ -75,7 +75,7 @@ class ComprasController extends Controller
         $compra->proveedors_id = $proveedors_id;
         $compra->saldo_total = 0;
         $compra->importe_total = 0;
-        $compra->estado = 'abierto';
+        $compra->estado = 'abierta';
         $compra->save();
         return redirect('/compras');
     }
