@@ -120,22 +120,6 @@ class ClientesController extends Controller
     public function update(Request $request, $id)
     {
 
-      $validator = Validator::make($request->all(), [
-                  'cliente' => 'required|unique:Clientes,id,'. $id . '|max:75',
-                  'barrio' => 'required|exists:barrios,barrio'
-
-      ]);
-
-
-      if ($validator->fails()) {
-        foreach($validator->messages()->getMessages() as $field_name => $messages) {
-          foreach($messages AS $message) {
-              $errors[] = $message;
-          }
-        }
-        return redirect()->back()->with('errors', $errors)->withInput();
-        die;
-      }
 
 
         $barrio = Barrio::where('barrio', $request->barrio)->first();
