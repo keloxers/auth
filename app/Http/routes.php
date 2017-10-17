@@ -17,6 +17,7 @@ Route::group(['middleware' => 'web'], function() {
     Route::auth();
 });
 
+
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@index');
 
@@ -87,14 +88,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('compras', 'ComprasController');
     Route::get('/compras/{id}/close', [ 'as' => 'compras.close', 'uses' => 'ComprasController@close']);
 
-    Route::post('/comprasdetalles/finder', [ 'as' => 'comprasdetalles.finder', 'uses' => 'ComprasdetallesController@finder']);
-    Route::get('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.index', 'uses' => 'ComprasdetallesController@index']);
-    Route::get('/comprasdetalles/{id}/create', [ 'as' => 'comprasdetalles.create', 'uses' => 'ComprasdetallesController@create']);
-    Route::post('/comprasdetalles/store', [ 'as' => 'comprasdetalles.store', 'uses' => 'ComprasdetallesController@store']);
-    Route::get('/comprasdetalles/{id}/edit', [ 'as' => 'comprasdetalles.edit', 'uses' => 'ComprasdetallesController@edit']);
-    Route::put('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.update', 'uses' => 'ComprasdetallesController@update']);
-    Route::get('/comprasdetalles/{id}/show', [ 'as' => 'comprasdetalles.show', 'uses' => 'ComprasdetallesController@show']);
-    Route::delete('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.destroy', 'uses' => 'ComprasdetallesController@destroy']);
+    Route::post('/comprasdetalles/finder', [ 'as' => 'comprasdetalles.finder', 'uses' => 'ComprasDetallesController@finder']);
+    Route::get('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.index', 'uses' => 'ComprasDetallesController@index']);
+    Route::get('/comprasdetalles/{id}/create', [ 'as' => 'comprasdetalles.create', 'uses' => 'ComprasDetallesController@create']);
+    Route::post('/comprasdetalles/store', [ 'as' => 'comprasdetalles.store', 'uses' => 'ComprasDetallesController@store']);
+    Route::get('/comprasdetalles/{id}/edit', [ 'as' => 'comprasdetalles.edit', 'uses' => 'ComprasDetallesController@edit']);
+    Route::put('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.update', 'uses' => 'ComprasDetallesController@update']);
+    Route::get('/comprasdetalles/{id}/show', [ 'as' => 'comprasdetalles.show', 'uses' => 'ComprasDetallesController@show']);
+    Route::delete('/comprasdetalles/{id}', [ 'as' => 'comprasdetalles.destroy', 'uses' => 'ComprasDetallesController@destroy']);
 
     Route::post('/ventas/finder', [ 'as' => 'ventas.finder', 'uses' => 'VentasController@finder']);
     Route::resource('ventas', 'VentasController');
