@@ -96,10 +96,13 @@ class ComprasdetallesController extends Controller
     public function show($id)
     {
 
+
       $comprasdetalle = Comprasdetalle::find($id);
       $compra = Compra::find($comprasdetalle->compras_id);
       $deposito = Deposito::find($comprasdetalle->depositos_id);
       $articulo = Articulo::find($comprasdetalle->articulos_id);
+
+die;
 
       $title = "Compras detalle";
       return view('comprasdetalles.show', ['comprasdetalle' => $comprasdetalle,
@@ -107,8 +110,6 @@ class ComprasdetallesController extends Controller
                                             'deposito' => $deposito,
                                             'articulo' => $articulo,
                                             'title' => $title]);
-
-
 
     }
 
