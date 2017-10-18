@@ -68,6 +68,13 @@
 										</div>
 
 
+										<div class="form-group">
+											<label for="input-text" class="col-sm-2 control-label">Precio Público</label>
+												<div class="col-sm-3">
+													{{ Form::text('precio_publico', $comprasdetalle->precio_publico, array('id' =>'precio_publico', 'name' =>'precio_publico', 'class' => 'form-control input-lg', 'placeholder' => 'Ingrese precio publico')) }}
+												</div>
+										</div>
+
 
 
 										</div>
@@ -101,6 +108,7 @@
 										source: "/articulos/search",
 										select: function( event, ui ) {
 											$('#articulos_id').val( ui.item.id );
+											$('#precio_publico').val( ui.item.publico );
 
 										}
 									});

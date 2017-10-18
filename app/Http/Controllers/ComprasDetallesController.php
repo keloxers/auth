@@ -83,6 +83,7 @@ class ComprasdetallesController extends Controller
         $comprasdetalle->articulos_id = $articulos_id;
         $comprasdetalle->cantidad = $request->cantidad;
         $comprasdetalle->precio_costo = $request->precio_costo;
+        $comprasdetalle->precio_publico = $request->precio_publico;
         $comprasdetalle->save();
         return redirect('/comprasdetalles/' . $request->compras_id);
     }
@@ -96,14 +97,10 @@ class ComprasdetallesController extends Controller
     public function show($id)
     {
 
-die;
-
       $comprasdetalle = Comprasdetalle::find($id);
       $compra = Compra::find($comprasdetalle->compras_id);
       $deposito = Deposito::find($comprasdetalle->depositos_id);
       $articulo = Articulo::find($comprasdetalle->articulos_id);
-
-
 
       $title = "Compras detalle";
       return view('comprasdetalles.show', ['comprasdetalle' => $comprasdetalle,
@@ -173,12 +170,9 @@ die;
           $comprasdetalle->articulos_id = $articulos_id;
           $comprasdetalle->cantidad = $request->cantidad;
           $comprasdetalle->precio_costo = $request->precio_costo;
+          $comprasdetalle->precio_publico = $request->precio_publico;
           $comprasdetalle->save();
           return redirect('/comprasdetalles/' . $request->compras_id);
-
-
-
-
 
 
     }

@@ -185,12 +185,14 @@ class ArticulosController extends Controller
                      $adevol[] = array(
                          'id' => $dato->id,
                          'value' => $dato->articulo,
+                         'publico' => $dato->precio_publico,
                      );
              }
          } else {
                      $adevol[] = array(
                          'id' => 0,
-                         'value' => 'no hay coincidencias para ' .  $term
+                         'value' => 'no hay coincidencias para ' .  $term,
+                         'publico' => 0,
                      );
          }
           return json_encode($adevol);

@@ -200,6 +200,7 @@ class ComprasController extends Controller
              {
                 $articulo = Articulo::find($comprasdetalle->articulos_id);
                 $articulo->precio_costo = $comprasdetalle->precio_costo;
+                $articulo->precio_publico = $comprasdetalle->precio_publico;
                 $articulo->save();
 
                 /* aca actualiza el stock buscando por deposito y articulo :) */

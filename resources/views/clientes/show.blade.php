@@ -27,7 +27,7 @@
 									<div class="form-group">
 										<label for="input-text" class="col-sm-2 control-label">Barrio</label>
 											<div class="col-sm-10">
-												{{ $cliente->barrio->barrio }}
+												{{ $cliente->barrios->barrio }}
 											</div>
 									</div>
 
